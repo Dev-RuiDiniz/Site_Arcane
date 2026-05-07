@@ -113,6 +113,25 @@ Alternativa:
 
 - aplicar o SQL da migration diretamente no SQL Editor do Supabase
 
+
+## Segurança operacional e LGPD
+
+- Não versionar `.env`, dumps de banco, logs locais ou arquivos gerados com dados reais.
+- Manter `NEXTAUTH_SECRET` forte e exclusivo por ambiente em staging e produção.
+- Tratar leads como dados pessoais: nome, email, telefone, empresa, mensagem e intenção de contato devem ser acessados somente por usuários autorizados.
+- Evitar registrar payloads completos de leads, sessões, tokens ou dados pessoais em logs.
+- Revisar periodicamente usuários administrativos e remover acessos que não forem mais necessários.
+- O endpoint público `POST /api/leads` deve ser monitorado contra abuso. Para produção com tráfego real, priorize rate limit, honeypot ou proteção equivalente.
+- Em incidentes ou suspeita de exposição de dados, preservar logs operacionais necessários sem incluir informações sensíveis no repositório.
+
+## Uploads e armazenamento
+
+O endpoint `POST /api/admin/upload` aceita imagens do admin e grava arquivos em `public/uploads/admin`.
+
+Esse armazenamento local depende de filesystem persistente. Em ambientes serverless ou deploys na Vercel, arquivos gravados em disco local podem não persistir entre execuções, builds ou redeploys.
+
+Para produção, recomenda-se migrar uploads para armazenamento persistente externo, como Supabase Storage, Vercel Blob ou S3. Ao implementar essa migração, mantenha as validações atuais de tipo, extensão e tamanho, e salve apenas URLs públicas/assinadas necessárias para exibição no site.
+
 ## Observações operacionais
 
 - Em produção, aplique migration compatível com os novos campos de `Contact`.
