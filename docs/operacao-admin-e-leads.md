@@ -138,3 +138,34 @@ Para produção, recomenda-se migrar uploads para armazenamento persistente exte
 - Em produção, aplique migration compatível com o modelo `PageContent`.
 - Em desenvolvimento sem banco, o conteúdo de `data/leads.json` e `data/admin-page-settings.json` pode ser removido manualmente quando necessário.
 - O painel de leads agora suporta mudança de status, mas a operação continua centrada em captura, leitura e resposta manual.
+
+## Validação do envio público de leads
+
+O schema de `POST /api/leads` aceita o campo opcional `website` como honeypot. Esse campo deve permanecer vazio nos formulários reais.
+
+### Cenários esperados
+
+1. Envio válido:
+   - `name`, `email`, `message` e `source` preenchidos.
+  - `website` ausente ou vazio.
+  - resposta esperada: `201` com `success: true`.
+
+2. Envio bloqueado por honeypot:
+   - mesmo payload válido, mas com `website` preenchido.
+   - resposta esperada: `400` com mensagem genérica de falha no registro.
+
+3. Operação administrativa:
+   - `GET /api/leads` continua restrito a `ADMIN`.
+   - `PATCH /api/leads/:id` continua restrito a `ADMIN`.
+
+### Exemplo de payload bloqueado
+
+```json
+{
+  "name": "Pessoa Teste",
+  "email": "teste@example.com",
+  "message": "Mensagem de teste com detalhes suficientes.",
+  "source": "contact",
+  "website": "https://spam.example"
+}
+```
