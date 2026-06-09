@@ -293,7 +293,7 @@ Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a expo
     align-items: center;
     gap: 0.65rem;
     color: var(--brand-cyan-strong);
-    font-size: 0.68rem;
+    font-size: 0.85rem;
     font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: 0.22em;

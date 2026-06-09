@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ConversionCTAs } from '@/components/ui/conversion-ctas'
@@ -67,24 +68,15 @@ export function Header({ ctas }: { ctas: ConversionCtaConfig }) {
                 initial={{ opacity: 0, x: -14 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.45 }}
-                className="leading-none"
               >
-                <span
-                  className={cn(
-                    'block font-cormorant text-[1.7rem] tracking-[0.24em] transition-colors lg:text-[2rem]',
-                    'text-brand-outlined'
-                  )}
-                >
-                  {siteConfig.brand.shortName}
-                </span>
-                <span
-                  className={cn(
-                    'mt-1 block font-inter text-[10px] uppercase tracking-[0.34em] transition-colors',
-                    'text-brand-outlined'
-                  )}
-                >
-                  {siteConfig.brand.subLabel}
-                </span>
+                <Image
+                  src="/images/logo-arcane.webp"
+                  alt="Arcane Tecnologia"
+                  width={340}
+                  height={120}
+                  className="h-auto w-[260px] lg:w-[340px] drop-shadow-[0_0_4px_rgba(255,255,255,0.95)] brightness-125"
+                  priority
+                />
               </motion.div>
             </Link>
 

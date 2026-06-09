@@ -8,7 +8,6 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { cormorant, inter, playfair } from "@/lib/fonts"
 import { ThemeProvider } from "@/components/providers/theme-provider"
-import { SessionProvider } from "@/components/providers/session-provider"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
@@ -56,16 +55,14 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${inter.variable} ${playfair.variable} overflow-x-hidden font-inter antialiased`}
       >
-        <SessionProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

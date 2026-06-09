@@ -53,8 +53,8 @@ export function ConversionCTAs({
     ? 'flex flex-wrap items-center gap-2'
     : 'flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3'
 
-  const primary = actionConfig[primaryAction]
-  const secondary = actionConfig[secondaryAction]
+  const primary = primaryAction === 'meeting' ? null : actionConfig[primaryAction]
+  const secondary = secondaryAction === 'meeting' ? null : actionConfig[secondaryAction]
 
   const baseClasses = compact
     ? 'h-10 px-4 text-[11px] tracking-[0.1em]'
@@ -78,8 +78,8 @@ export function ConversionCTAs({
 
   return (
     <div className={cn(wrapperClasses, className)}>
-      <ActionButton action={primary} className={primaryClasses} compact={compact} />
-      <ActionButton action={secondary} className={secondaryClasses} compact={compact} />
+      {primary && <ActionButton action={primary} className={primaryClasses} compact={compact} />}
+      {secondary && <ActionButton action={secondary} className={secondaryClasses} compact={compact} />}
     </div>
   )
 }
