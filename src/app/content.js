@@ -38,27 +38,150 @@ export const siteContent = {
   services: [
     {
       number: '01',
+      slug: 'arcane-digital',
+      detailHref: '/services/arcane-digital',
       title: 'Arcane Digital',
       subtitle: 'Landing Pages, Campanhas, Conteúdo e Redes Sociais',
       text: 'Criamos a presença digital que transforma atenção em oportunidade. Landing pages de alta conversão, campanhas, identidade para lançamentos, materiais comerciais, media kits e conteúdo para redes sociais — tudo conectado à estratégia de posicionamento e aquisição da marca.',
       cta: 'Quero fortalecer minha presença digital',
       href: buildWhatsAppUrl('Olá! Quero fortalecer minha presença digital com a Arcane.'),
+      detail: {
+        lead: 'Sua marca não precisa de mais conteúdo solto. Precisa de uma presença que faça a pessoa certa entender, confiar e agir.',
+        intro: 'A Arcane Digital transforma posicionamento em experiências digitais que atraem atenção qualificada e conduzem cada visita ao próximo passo comercial.',
+        cta: { label: 'Quero fortalecer minha presença digital', href: buildWhatsAppUrl('Olá! Quero fortalecer minha presença digital com a Arcane.') },
+        sections: [
+          {
+            heading: 'Atenção sem direção não vira oportunidade.',
+            paragraphs: [
+              'Uma empresa pode publicar todos os dias e ainda assim deixar o mercado sem resposta. Quando a mensagem muda a cada canal, a pessoa precisa fazer esforço demais para entender o valor — e a oportunidade se perde antes da conversa.',
+              'A Arcane Digital organiza a presença da marca para que campanha, página, conteúdo e material comercial trabalhem na mesma direção: atrair o público certo, explicar a proposta com clareza e facilitar a decisão.',
+            ],
+          },
+          {
+            heading: 'O que a Arcane Digital coloca de pé.',
+            points: [
+              { title: 'Landing pages', text: 'Páginas pensadas para campanhas, lançamentos e ofertas específicas, com mensagem clara e caminho de conversão.' },
+              { title: 'Campanhas e lançamentos', text: 'Conceito, narrativa e peças conectadas para transformar uma iniciativa em uma presença que o mercado reconhece.' },
+              { title: 'Conteúdo e redes sociais', text: 'Pautas e formatos que constroem repertório, confiança e continuidade — sem publicar por publicar.' },
+              { title: 'Materiais comerciais', text: 'Apresentações, media kits e ativos de venda que ajudam o time a explicar, provar e avançar.' },
+            ],
+          },
+          {
+            heading: 'Cada peça precisa trabalhar para o mesmo objetivo.',
+            paragraphs: [
+              'Uma boa página não compensa uma promessa confusa. Uma campanha forte não sustenta uma experiência que não responde às dúvidas do público. Por isso, começamos pelo contexto: quem precisa ser convencido, o que essa pessoa precisa entender e qual ação faz sentido agora.',
+              'O resultado é uma presença mais coerente, mais fácil de reconhecer e mais preparada para transformar interesse em oportunidade comercial.',
+            ],
+            highlight: 'A presença digital certa não faz barulho por você. Ela torna mais fácil para o cliente certo escolher conversar com você.',
+          },
+          {
+            heading: 'O que muda na prática.',
+            points: [
+              { title: 'Mensagem mais clara', text: 'O valor da empresa aparece antes da lista de serviços e chega ao público com menos ruído.' },
+              { title: 'Mais confiança', text: 'Conteúdo, identidade e prova constroem uma percepção consistente em todos os pontos de contato.' },
+              { title: 'Mais conversas qualificadas', text: 'O próximo passo fica evidente para quem já tem contexto e intenção de avançar.' },
+            ],
+          },
+        ],
+      },
     },
     {
       number: '02',
+      slug: 'arcane-labs',
+      detailHref: '/services/arcane-labs',
       title: 'Arcane Labs',
       subtitle: 'Sistemas, Aplicativos e Produtos Digitais',
       text: 'Transformamos ideias e operações em produtos digitais próprios. Desenvolvemos sistemas web, plataformas SaaS, aplicativos e soluções sob medida com arquitetura escalável, experiência bem desenhada e tecnologia preparada para acompanhar o crescimento do negócio.',
       cta: 'Quero desenvolver um produto',
       href: buildWhatsAppUrl('Olá! Quero desenvolver um produto digital com a Arcane.'),
+      detail: {
+        lead: 'Uma ideia ganha valor quando vira uma experiência que alguém usa, entende e escolhe continuar usando.',
+        intro: 'A Arcane Labs transforma necessidades de negócio em sistemas, aplicativos e produtos digitais próprios — da primeira hipótese à base tecnológica que sustenta a evolução.',
+        cta: { label: 'Quero desenvolver um produto', href: buildWhatsAppUrl('Olá! Quero desenvolver um produto digital com a Arcane.') },
+        sections: [
+          {
+            heading: 'Produto próprio começa pelo problema certo.',
+            paragraphs: [
+              'Nem toda necessidade pede um novo software. Mas quando uma operação depende de improvisos, uma oportunidade se repete ou uma experiência genérica limita o crescimento, criar um produto próprio pode devolver autonomia e abrir uma nova vantagem competitiva.',
+              'Antes de escrever código, entendemos quem usa, qual decisão precisa ser facilitada e que resultado fará o produto valer a pena. Isso reduz o risco de construir uma solução sofisticada para um problema que ainda não foi bem definido.',
+            ],
+          },
+          {
+            heading: 'Do contexto à primeira versão útil.',
+            points: [
+              { title: 'Descoberta', text: 'Mapeamos objetivos, usuários, regras e restrições para transformar uma ideia ampla em uma oportunidade concreta.' },
+              { title: 'Experiência', text: 'Desenhamos fluxos e interfaces que tornam a tarefa principal simples, clara e possível de validar.' },
+              { title: 'Construção', text: 'Desenvolvemos a primeira versão com foco no aprendizado e na capacidade de entregar valor real.' },
+              { title: 'Evolução', text: 'Usamos comportamento, feedback e métricas para decidir o que merece ser aprofundado em seguida.' },
+            ],
+          },
+          {
+            heading: 'Tecnologia sob medida, sem complexidade prematura.',
+            paragraphs: [
+              'Arquitetura escalável não significa começar com excesso de camadas. Significa tomar decisões conscientes para que o produto possa crescer sem transformar cada mudança em um recomeço.',
+              'A Arcane combina engenharia, design e contexto de negócio para entregar uma base proporcional ao momento atual, mas preparada para as próximas perguntas que o mercado vai fazer.',
+            ],
+            highlight: 'O melhor produto inicial não é o que faz tudo. É o que resolve algo importante e ensina qual é a próxima coisa certa a construir.',
+          },
+          {
+            heading: 'O que você ganha ao construir com a Arcane Labs.',
+            points: [
+              { title: 'Autonomia', text: 'Uma solução desenhada para a realidade do negócio, sem depender das limitações de uma ferramenta genérica.' },
+              { title: 'Clareza', text: 'Decisões de produto e tecnologia conectadas a usuários, objetivos e evidências.' },
+              { title: 'Base para crescer', text: 'Um produto preparado para evoluir com segurança conforme o uso e a oportunidade aumentam.' },
+            ],
+          },
+        ],
+      },
     },
     {
       number: '03',
+      slug: 'arcane-growth',
+      detailHref: '/services/arcane-growth',
       title: 'Arcane Growth',
       subtitle: 'IA, Automações e Integrações',
       text: 'Conectamos ferramentas, dados e inteligência para eliminar trabalho manual e acelerar a operação. Automatizamos processos, integramos CRM, WhatsApp, APIs e sistemas internos e aplicamos IA onde ela realmente gera ganho de produtividade, velocidade e conversão.',
       cta: 'Quero automatizar minha operação',
       href: buildWhatsAppUrl('Olá! Quero automatizar minha operação com a Arcane.'),
+      detail: {
+        lead: 'Automação boa devolve tempo para o negócio — não apenas porque faz tarefas mais rápido, mas porque devolve contexto para quem precisa decidir.',
+        intro: 'A Arcane Growth conecta ferramentas, dados e inteligência para reduzir retrabalho, acelerar respostas e criar uma operação capaz de crescer com mais consistência.',
+        cta: { label: 'Quero automatizar minha operação', href: buildWhatsAppUrl('Olá! Quero automatizar minha operação com a Arcane.') },
+        sections: [
+          {
+            heading: 'Mais ferramentas não significam mais crescimento.',
+            paragraphs: [
+              'Quando CRM, WhatsApp, planilhas e sistemas internos não conversam, o time vira a integração. As pessoas copiam dados, conferem informações, lembram prazos e corrigem falhas que poderiam ser evitadas no fluxo.',
+              'A Arcane Growth olha para a operação inteira: onde uma demanda nasce, quem precisa receber contexto, quais decisões se repetem e qual trabalho manual está consumindo capacidade que deveria estar sendo usada para vender, atender e melhorar o negócio.',
+            ],
+          },
+          {
+            heading: 'O que conectamos e automatizamos.',
+            points: [
+              { title: 'Processos comerciais', text: 'Captura, distribuição e acompanhamento de leads com menos espera e mais visibilidade para o time.' },
+              { title: 'CRM e WhatsApp', text: 'Mensagens, registros e atualizações conectados para reduzir perda de contexto entre atendimento e venda.' },
+              { title: 'APIs e sistemas internos', text: 'Dados circulando entre ferramentas para eliminar digitação repetida e criar uma fonte de verdade mais confiável.' },
+              { title: 'IA aplicada', text: 'Classificação, resumo, recomendação e apoio à decisão onde existe contexto suficiente para gerar ganho real.' },
+            ],
+          },
+          {
+            heading: 'Automatizar é redesenhar o caminho.',
+            paragraphs: [
+              'Uma automação bem feita não esconde o processo: ela torna o processo mais visível. Mapeamos entradas, regras, exceções e responsáveis para que a tecnologia cuide do que é repetitivo e o time saiba exatamente quando precisa intervir.',
+              'Assim, a empresa ganha velocidade sem perder controle. O objetivo não é substituir o olhar humano, e sim liberar esse olhar para problemas que exigem julgamento, relacionamento e decisão.',
+            ],
+            highlight: 'A escala saudável acontece quando o próximo cliente não exige o mesmo esforço manual do anterior.',
+          },
+          {
+            heading: 'O resultado aparece na operação.',
+            points: [
+              { title: 'Menos retrabalho', text: 'Informações entram uma vez e chegam ao lugar certo sem depender de cópia e conferência manual.' },
+              { title: 'Mais previsibilidade', text: 'O time enxerga o andamento, os responsáveis e os pontos de falha antes que eles virem urgência.' },
+              { title: 'Mais capacidade', text: 'A operação absorve mais demanda sem crescer na mesma proporção em tarefas administrativas.' },
+            ],
+          },
+        ],
+      },
     },
   ],
   contactPage: {

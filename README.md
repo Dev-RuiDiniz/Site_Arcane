@@ -49,6 +49,9 @@ Abra `http://localhost:4173/`.
 
 - `/`
 - `/services`
+- `/services/arcane-digital`
+- `/services/arcane-labs`
+- `/services/arcane-growth`
 - `/projects`
 - `/blog`
 - `/blog/a-atencao-certa-comeca-antes-do-clique`
@@ -74,3 +77,11 @@ O índice `/blog` apresenta três artigos editoriais completos, com leitura esti
 - Digital — “A atenção certa começa antes do clique.”
 - Labs — “Quando uma ideia pede um produto próprio.”
 - Growth — “Automação boa devolve tempo para o negócio.”
+
+## Páginas comerciais de serviços
+
+Além da visão geral em `/services`, cada frente possui uma página própria com uma narrativa comercial completa, escopo de atuação, forma de entrega, resultados esperados e CTA contextualizado para o WhatsApp:
+
+- **Arcane Digital** — [Landing Pages, Campanhas, Conteúdo e Redes Sociais](http://localhost:4173/services/arcane-digital)
+- **Arcane Labs** — [Sistemas, Aplicativos e Produtos Digitais](http://localhost:4173/services/arcane-labs)
+- **Arcane Growth** — [IA, Automações e Integrações](http://localhost:4173/services/arcane-growth)

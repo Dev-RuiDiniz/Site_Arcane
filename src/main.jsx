@@ -13,6 +13,7 @@ import { ContactPage } from './pages/ContactPage.jsx';
 import { LegalPage } from './pages/LegalPage.jsx';
 import { WhatsAppFloat } from './components/WhatsAppFloat.jsx';
 import { ArticleDetailPage } from './pages/ArticleDetailPage.jsx';
+import { ServiceDetailPage } from './pages/ServiceDetailPage.jsx';
 import { siteContent } from './app/content.js';
 import './styles/tokens.css';
 import './styles/global.css';
@@ -56,6 +57,10 @@ function App() {
   if (route.key === 'article') {
     const article = siteContent.articles.find((item) => item.slug === route.articleSlug);
     page = article ? <ArticleDetailPage article={article} {...pageProps} /> : <BlogPage {...pageProps} />;
+  }
+  if (route.key === 'service') {
+    const service = siteContent.services.find((item) => item.slug === route.serviceSlug);
+    page = service ? <ServiceDetailPage service={service} {...pageProps} /> : <ServicesPage {...pageProps} />;
   }
   if (['privacy', 'terms', 'cookies'].includes(route.key)) page = <LegalPage kind={route.key} {...pageProps} />;
 

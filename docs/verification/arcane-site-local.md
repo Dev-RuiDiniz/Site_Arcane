@@ -26,6 +26,10 @@ Data: 19/08/2026
 - Contato mobile: `output/playwright/arcane-local/mobile-contact.png`
 - Artigo Digital desktop: `output/playwright/arcane-local/article-digital-desktop.png`
 - Artigo Digital mobile: `output/playwright/arcane-local/article-digital-mobile.png`
+- Serviço Digital desktop: `output/playwright/arcane-local/service-digital-desktop.png`
+- Serviço Digital mobile: `output/playwright/arcane-local/service-digital-mobile.png`
+- Serviço Digital página completa desktop: `output/playwright/arcane-local/service-digital-full.png`
+- Serviço Digital página completa mobile: `output/playwright/arcane-local/service-digital-mobile-full.png`
 
 ## Fidelity ledger
 
@@ -56,10 +60,11 @@ Data: 19/08/2026
 - Formulário válido constrói uma mensagem contextual e solicita o WhatsApp diretamente.
 - Cards do blog abrem os três artigos iniciais em rotas próprias, com retorno para `/blog`.
 - As páginas de artigo foram revisadas em desktop e mobile, sem overflow horizontal.
+- As três páginas comerciais de serviço foram revisadas em desktop e mobile, com CTA específico e retorno para `/services`.
 - Pesquisa editorial usada como base: conteúdo útil e people-first, experiência da página de destino, validação de produto e redesenho de workflows antes da automação.
 - Console do navegador: 0 erros e 0 warnings na última leitura.
 
 ## Comandos executados
 
-- `npm test -- --run` — 2 arquivos, 9 testes aprovados.
+- `npm test -- --run` — 2 arquivos, 10 testes aprovados.
 - `npm run build` — build Vite concluído sem erros.

@@ -1,6 +1,9 @@
 export const routeTable = [
   { path: '/', key: 'home' },
   { path: '/services', key: 'services' },
+  { path: '/services/arcane-digital', key: 'service', serviceSlug: 'arcane-digital' },
+  { path: '/services/arcane-labs', key: 'service', serviceSlug: 'arcane-labs' },
+  { path: '/services/arcane-growth', key: 'service', serviceSlug: 'arcane-growth' },
   { path: '/projects', key: 'projects' },
   { path: '/blog', key: 'blog' },
   { path: '/blog/a-atencao-certa-comeca-antes-do-clique', key: 'article', articleSlug: 'a-atencao-certa-comeca-antes-do-clique' },

@@ -69,4 +69,18 @@ describe('Arcane site routes', () => {
       expect(article.cta.href).toContain('https://wa.me/5512991332258');
     });
   });
+
+  it('exposes commercial detail pages for the three service fronts', () => {
+    expect(siteContent.services.map((service) => service.detailHref)).toEqual([
+      '/services/arcane-digital',
+      '/services/arcane-labs',
+      '/services/arcane-growth',
+    ]);
+    siteContent.services.forEach((service) => {
+      expect(getRoute(service.detailHref)).toMatchObject({ key: 'service', serviceSlug: service.slug });
+      expect(service.detail.lead).toBeTruthy();
+      expect(service.detail.sections.length).toBeGreaterThanOrEqual(3);
+      expect(service.detail.cta.href).toContain('https://wa.me/5512991332258');
+    });
+  });
 });
