@@ -10,11 +10,6 @@ export function ServiceDetailPage({ service, onNavigate }) {
         <a className="article-back-link" href="/services" onClick={(event) => onNavigate(event, '/services')}>
           <ArrowIcon direction="left" /> Voltar para serviços
         </a>
-        <div className="article-detail-meta">
-          <span>{service.number}</span>
-          <span>{service.title}</span>
-          <span>{service.subtitle}</span>
-        </div>
         <h1>{service.title}</h1>
         <p className="service-detail-subtitle">{service.subtitle}</p>
         <p>{detail.lead}</p>
