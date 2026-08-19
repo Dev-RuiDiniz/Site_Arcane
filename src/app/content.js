@@ -360,15 +360,206 @@ export const siteContent = {
   legal: {
     privacy: {
       title: 'Política de Privacidade',
-      paragraphs: ['Esta página apresenta a estrutura inicial da política de privacidade da Arcane Tecnologia.', 'Na versão final, detalharemos dados coletados, finalidades, bases legais, retenção e canais de solicitação do titular.'],
+      updatedAt: '19 de agosto de 2026',
+      intro: 'Transparência também faz parte de uma operação digital bem construída. Esta política explica como a Arcane Tecnologia trata dados pessoais quando você navega pelo site, entra em contato ou solicita uma conversa comercial.',
+      notice: 'Este documento é uma base institucional de transparência e deve ser revisado juridicamente antes da publicação definitiva, especialmente quando novas ferramentas, integrações ou campanhas forem ativadas.',
+      sections: [
+        {
+          heading: '1. Quem somos e qual é o objetivo desta política',
+          paragraphs: [
+            'A Arcane Tecnologia atua com estratégia digital, desenvolvimento de produtos, automação e integração de sistemas. Nesta política, explicamos quais dados podem ser tratados no contexto deste site, para quais finalidades e como você pode exercer seus direitos.',
+            'O tratamento de dados pessoais deve ocorrer de forma transparente, adequada ao contexto e limitada ao necessário para a finalidade informada.',
+          ],
+        },
+        {
+          heading: '2. Quais dados podem ser tratados',
+          paragraphs: ['Dependendo da forma como você interage com o site, podemos receber os seguintes dados:'],
+          items: [
+            'Dados de contato, como nome, e-mail, telefone, empresa e informações que você decide compartilhar na mensagem.',
+            'Dados de navegação e dispositivo, como endereço IP, navegador, sistema operacional, páginas acessadas e informações técnicas similares.',
+            'Dados de comunicação, incluindo o conteúdo de solicitações enviadas por formulário, e-mail ou WhatsApp.',
+            'Preferências relacionadas a cookies e tecnologias semelhantes, quando utilizadas e quando você puder gerenciá-las.',
+          ],
+        },
+        {
+          heading: '3. Para que usamos essas informações',
+          paragraphs: ['Usamos os dados pessoais somente para finalidades compatíveis com a interação realizada, incluindo:'],
+          items: [
+            'Responder dúvidas, pedidos de contato e solicitações comerciais.',
+            'Entender o contexto informado para preparar uma conversa mais objetiva.',
+            'Operar, proteger, medir e melhorar o desempenho e a segurança do site.',
+            'Cumprir obrigações legais, atender solicitações de autoridades e exercer direitos em processos administrativos ou judiciais.',
+            'Enviar comunicações comerciais quando houver uma base legal adequada e respeitando a possibilidade de não receber novas mensagens.',
+          ],
+        },
+        {
+          heading: '4. Compartilhamento e operadores',
+          paragraphs: [
+            'A Arcane não comercializa dados pessoais. Quando necessário para operar o site ou atender uma solicitação, dados podem ser processados por fornecedores de hospedagem, tecnologia, comunicação, analytics ou atendimento, sempre dentro do escopo contratado e conforme instruções aplicáveis.',
+            'Também podemos compartilhar informações quando isso for necessário para cumprir uma obrigação legal, responder a uma ordem válida ou proteger direitos, segurança e integridade da Arcane, dos usuários ou de terceiros.',
+          ],
+        },
+        {
+          heading: '5. Retenção e segurança',
+          paragraphs: [
+            'Guardamos dados pessoais pelo tempo necessário para cumprir as finalidades desta política, atender obrigações legais, resolver disputas e manter registros mínimos de segurança. O prazo pode variar conforme o tipo de dado e o contexto da interação.',
+            'Adotamos medidas técnicas e administrativas compatíveis com a natureza dos dados e com os riscos do tratamento. Nenhum ambiente conectado à internet é absolutamente livre de riscos, por isso a segurança também depende do cuidado do usuário com seus dispositivos e canais de acesso.',
+          ],
+        },
+        {
+          heading: '6. Direitos do titular',
+          paragraphs: ['Nos limites da legislação aplicável, você pode solicitar informações sobre o tratamento de seus dados e exercer direitos como:'],
+          items: [
+            'Confirmação da existência de tratamento e acesso aos dados.',
+            'Correção de dados incompletos, inexatos ou desatualizados.',
+            'Informações sobre finalidades, compartilhamentos e critérios aplicáveis.',
+            'Revogação do consentimento e eliminação de dados tratados com base nele, quando cabível.',
+            'Revisão ou explicação sobre decisões automatizadas que afetem seus interesses, quando aplicável.',
+          ],
+        },
+        {
+          heading: '7. Como falar conosco',
+          paragraphs: [
+            'Para dúvidas, solicitações ou pedidos relacionados a dados pessoais, envie uma mensagem para comercial@arcanetecnologia.com.br. Descreva o pedido com o máximo de contexto possível para que a equipe consiga localizar a interação e responder de forma adequada.',
+            'Podemos solicitar informações adicionais para confirmar a identidade de quem faz o pedido e evitar o acesso indevido a dados pessoais.',
+          ],
+        },
+        {
+          heading: '8. Atualizações desta política',
+          paragraphs: ['Podemos atualizar esta política para refletir mudanças no site, nas ferramentas utilizadas, nas finalidades de tratamento ou na legislação aplicável. A versão mais recente estará sempre disponível nesta página, com a respectiva data de atualização.'],
+        },
+      ],
+      contact: { label: 'Canal de privacidade', email: 'comercial@arcanetecnologia.com.br' },
+      sources: [
+        { label: 'Lei Geral de Proteção de Dados — Planalto', href: 'https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm' },
+        { label: 'ANPD — Direitos dos titulares', href: 'https://www.gov.br/anpd/pt-br/assuntos/titular-de-dados-1/direito-dos-titulares' },
+      ],
     },
     terms: {
       title: 'Termos de Uso',
-      paragraphs: ['Esta página apresenta a estrutura inicial dos termos de uso da Arcane Tecnologia.', 'Na versão final, detalharemos responsabilidades, propriedade intelectual, disponibilidade e condições de uso do site.'],
+      updatedAt: '19 de agosto de 2026',
+      intro: 'Estes termos definem as regras para acessar e utilizar o site institucional da Arcane Tecnologia, consultar nossos conteúdos e iniciar uma conversa sobre serviços digitais.',
+      notice: 'Ao navegar pelo site, você concorda em utilizar o conteúdo de forma legítima, respeitosa e compatível com estes termos. Se não concordar com alguma condição, interrompa a navegação e fale conosco para esclarecer sua dúvida.',
+      sections: [
+        {
+          heading: '1. Sobre o site',
+          paragraphs: [
+            'O site apresenta informações institucionais e comerciais sobre as frentes Arcane Digital, Arcane Labs e Arcane Growth, além de artigos, cases, formas de contato e informações legais.',
+            'As páginas não constituem, por si só, uma proposta comercial, contrato de prestação de serviços ou garantia de resultado. Cada projeto depende de escopo, contexto, premissas, prazos e condições definidos entre as partes.',
+          ],
+        },
+        {
+          heading: '2. Uso permitido',
+          paragraphs: ['Você pode acessar e utilizar o site para fins pessoais, informativos e comerciais legítimos. Não é permitido:'],
+          items: [
+            'Utilizar o site para praticar fraude, violar direitos ou causar danos a pessoas, empresas ou sistemas.',
+            'Tentar acessar áreas, dados ou recursos sem autorização.',
+            'Copiar, reproduzir, distribuir ou explorar comercialmente conteúdos do site sem autorização prévia.',
+            'Inserir código malicioso, realizar engenharia reversa ou interferir na disponibilidade e no funcionamento do site.',
+            'Enviar informações falsas, abusivas ou que violem direitos de terceiros pelos canais de contato.',
+          ],
+        },
+        {
+          heading: '3. Conteúdo e propriedade intelectual',
+          paragraphs: [
+            'Textos, identidade visual, marcas, código, layouts, imagens, vídeos, gráficos e demais elementos do site pertencem à Arcane Tecnologia ou são utilizados com autorização. A navegação não transfere qualquer direito de propriedade intelectual ao usuário.',
+            'É permitido compartilhar links para as páginas públicas do site, desde que o contexto não deturpe a informação nem sugira uma relação comercial ou institucional inexistente.',
+          ],
+        },
+        {
+          heading: '4. Conteúdo informativo e links externos',
+          paragraphs: [
+            'Buscamos manter as informações claras e atualizadas, mas conteúdos institucionais, editoriais e comerciais podem ser alterados sem aviso prévio. A publicação de uma informação não garante que ela permaneça disponível ou aplicável a todos os contextos.',
+            'O site pode apresentar links para plataformas externas, como WhatsApp, referências técnicas ou serviços de terceiros. Esses ambientes possuem seus próprios termos, políticas e responsabilidades.',
+          ],
+        },
+        {
+          heading: '5. Contato comercial',
+          paragraphs: [
+            'Ao iniciar uma conversa pelo WhatsApp, formulário ou e-mail, você se compromete a fornecer informações verdadeiras e suficientes para que a Arcane compreenda a solicitação. O envio de uma mensagem não obriga a Arcane a aceitar um projeto ou a apresentar uma proposta.',
+            'As condições de qualquer serviço serão formalizadas em documento próprio, com escopo, responsabilidades, prazos, valores, propriedade intelectual, confidencialidade e demais condições aplicáveis.',
+          ],
+        },
+        {
+          heading: '6. Disponibilidade e limitações',
+          paragraphs: [
+            'Podemos atualizar, suspender ou alterar páginas, recursos e conteúdos do site para manutenção, segurança, evolução ou motivos operacionais. Faremos esforços razoáveis para manter a experiência disponível, mas não garantimos funcionamento ininterrupto ou ausência completa de erros.',
+            'Na extensão permitida pela legislação aplicável, a Arcane não se responsabiliza por indisponibilidade de serviços de terceiros, falhas de conexão ou decisões tomadas exclusivamente com base em conteúdo informativo do site.',
+          ],
+        },
+        {
+          heading: '7. Alterações e legislação aplicável',
+          paragraphs: [
+            'Estes termos podem ser atualizados quando houver mudança relevante no site, nos serviços ou nas obrigações aplicáveis. A versão publicada nesta página será considerada a versão vigente para o uso posterior à sua atualização.',
+            'A utilização do site é regida pela legislação brasileira. Eventuais questões serão encaminhadas ao foro competente, respeitadas as regras legais aplicáveis.',
+          ],
+        },
+        {
+          heading: '8. Fale conosco',
+          paragraphs: ['Se você tiver dúvidas sobre estes termos, envie uma mensagem para comercial@arcanetecnologia.com.br ou fale com a Arcane pelo WhatsApp.'],
+        },
+      ],
+      contact: { label: 'Dúvidas sobre os termos', email: 'comercial@arcanetecnologia.com.br' },
+      sources: [
+        { label: 'Código Civil — Planalto', href: 'https://www.planalto.gov.br/ccivil_03/leis/l10406compilada.htm' },
+      ],
     },
     cookies: {
       title: 'Política de Cookies',
-      paragraphs: ['Esta página apresenta a estrutura inicial da política de cookies da Arcane Tecnologia.', 'Na versão final, detalharemos categorias, finalidades, duração e formas de gerenciamento das preferências.'],
+      updatedAt: '19 de agosto de 2026',
+      intro: 'Cookies são pequenos arquivos ou tecnologias semelhantes que ajudam um site a funcionar, lembrar preferências e entender como a experiência é utilizada. Esta política explica como eles podem ser usados no ambiente digital da Arcane.',
+      notice: 'A ativação de cookies não necessários depende da configuração das ferramentas utilizadas no site e das preferências disponibilizadas ao visitante. Cookies estritamente necessários podem ser usados para entregar recursos básicos e segurança.',
+      sections: [
+        {
+          heading: '1. O que são cookies',
+          paragraphs: [
+            'Cookies são arquivos armazenados no navegador ou no dispositivo quando você visita uma página. Tecnologias semelhantes, como pixels, tags e identificadores locais, podem cumprir funções parecidas.',
+            'Eles não são todos iguais: alguns são necessários para o funcionamento técnico; outros ajudam a medir audiência, lembrar escolhas ou apoiar iniciativas de comunicação.',
+          ],
+        },
+        {
+          heading: '2. Categorias que podem ser utilizadas',
+          paragraphs: ['Quando aplicável à configuração do site, os cookies podem ser organizados nas seguintes categorias:'],
+          items: [
+            'Necessários: permitem segurança, navegação, carregamento e funcionamento básico do site.',
+            'Preferências: lembram escolhas que melhoram a experiência, como idioma ou configurações de visualização.',
+            'Analíticos: ajudam a entender páginas acessadas, desempenho e interação de forma agregada.',
+            'Marketing: podem medir campanhas ou personalizar comunicações quando houver ferramenta habilitada e base legal adequada.',
+          ],
+        },
+        {
+          heading: '3. Cookies necessários e cookies opcionais',
+          paragraphs: [
+            'Cookies estritamente necessários podem ser tratados porque sem eles determinados recursos, segurança ou funcionamento do site podem ficar comprometidos. Cookies opcionais devem ser apresentados com informação clara e, quando dependerem de consentimento, permanecer desativados até que você faça uma escolha.',
+            'A disponibilidade de um banner ou centro de preferências depende das tecnologias ativas no momento do acesso. Quando houver esse mecanismo, você poderá aceitar, recusar ou ajustar categorias não essenciais.',
+          ],
+        },
+        {
+          heading: '4. Como gerenciar suas preferências',
+          paragraphs: [
+            'Você pode apagar ou bloquear cookies nas configurações do navegador. Também pode limitar cookies de terceiros e revisar as permissões concedidas no dispositivo.',
+            'Desativar cookies necessários pode afetar o funcionamento do site. A gestão pelo navegador é complementar e não substitui os mecanismos de informação e controle que possam ser oferecidos diretamente pela página.',
+          ],
+        },
+        {
+          heading: '5. Terceiros e prazo de retenção',
+          paragraphs: [
+            'Ferramentas de terceiros eventualmente integradas ao site podem instalar ou consultar seus próprios cookies, de acordo com suas políticas. Recomendamos consultar também as políticas desses fornecedores quando essa tecnologia estiver ativa.',
+            'O tempo de permanência varia: cookies de sessão são removidos ao fechar o navegador, enquanto cookies persistentes permanecem até o prazo definido ou até serem apagados por você.',
+          ],
+        },
+        {
+          heading: '6. Atualizações e contato',
+          paragraphs: [
+            'Esta política pode ser atualizada quando novas ferramentas, campanhas, integrações ou exigências regulatórias alterarem o uso de cookies. A data no início da página indica a versão mais recente.',
+            'Para dúvidas sobre cookies ou sobre o tratamento de dados pessoais, escreva para comercial@arcanetecnologia.com.br.',
+          ],
+        },
+      ],
+      contact: { label: 'Dúvidas sobre cookies', email: 'comercial@arcanetecnologia.com.br' },
+      sources: [
+        { label: 'ANPD — Guia orientativo sobre cookies', href: 'https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_orientativo_cookies_e_protecao_de_dados_pessoais' },
+      ],
     },
   },
 };

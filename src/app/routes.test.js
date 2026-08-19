@@ -83,4 +83,19 @@ describe('Arcane site routes', () => {
       expect(service.detail.cta.href).toContain('https://wa.me/5512991332258');
     });
   });
+
+  it('provides complete legal page structures for privacy, terms and cookies', () => {
+    ['privacy', 'terms', 'cookies'].forEach((kind) => {
+      const page = siteContent.legal[kind];
+      expect(page.title).toBeTruthy();
+      expect(page.updatedAt).toBeTruthy();
+      expect(page.intro).toBeTruthy();
+      expect(page.sections.length).toBeGreaterThanOrEqual(5);
+      page.sections.forEach((section) => {
+        expect(section.heading).toBeTruthy();
+        expect(section.paragraphs.length).toBeGreaterThanOrEqual(1);
+      });
+      expect(page.contact.email).toBe(siteContent.contact.email);
+    });
+  });
 });

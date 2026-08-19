@@ -30,6 +30,9 @@ Data: 19/08/2026
 - Serviço Digital mobile: `output/playwright/arcane-local/service-digital-mobile.png`
 - Serviço Digital página completa desktop: `output/playwright/arcane-local/service-digital-full.png`
 - Serviço Digital página completa mobile: `output/playwright/arcane-local/service-digital-mobile-full.png`
+- Política de Privacidade desktop: `output/playwright/arcane-local/privacy-full.png`
+- Termos de Uso mobile: `output/playwright/arcane-local/terms-mobile-full.png`
+- Política de Cookies desktop: `output/playwright/arcane-local/cookies-desktop.png`
 
 ## Fidelity ledger
 
@@ -61,10 +64,11 @@ Data: 19/08/2026
 - Cards do blog abrem os três artigos iniciais em rotas próprias, com retorno para `/blog`.
 - As páginas de artigo foram revisadas em desktop e mobile, sem overflow horizontal.
 - As três páginas comerciais de serviço foram revisadas em desktop e mobile, com CTA específico e retorno para `/services`.
+- As três páginas legais foram revisadas em desktop e mobile, com conteúdo estruturado, referências e canal de contato.
 - Pesquisa editorial usada como base: conteúdo útil e people-first, experiência da página de destino, validação de produto e redesenho de workflows antes da automação.
 - Console do navegador: 0 erros e 0 warnings na última leitura.
 
 ## Comandos executados
 
-- `npm test -- --run` — 2 arquivos, 10 testes aprovados.
+- `npm test -- --run` — 2 arquivos, 11 testes aprovados.
 - `npm run build` — build Vite concluído sem erros.

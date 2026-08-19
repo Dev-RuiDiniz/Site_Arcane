@@ -78,6 +78,14 @@ O índice `/blog` apresenta três artigos editoriais completos, com leitura esti
 - Labs — “Quando uma ideia pede um produto próprio.”
 - Growth — “Automação boa devolve tempo para o negócio.”
 
+## Páginas legais
+
+As páginas legais foram estruturadas com data de atualização, escopo, seções explicativas, orientações práticas, canal de contato e referências institucionais:
+
+- `/privacy` — tratamento de dados pessoais, finalidades, segurança e direitos do titular.
+- `/terms` — regras de uso do site, propriedade intelectual, contato comercial e limitações.
+- `/cookies` — categorias, finalidades, preferências, terceiros e gerenciamento de cookies.
+
 ## Páginas comerciais de serviços
 
 Além da visão geral em `/services`, cada frente possui uma página própria com uma narrativa comercial completa, escopo de atuação, forma de entrega, resultados esperados e CTA contextualizado para o WhatsApp:
