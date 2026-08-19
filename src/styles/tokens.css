@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --arcane-ink: #090a0b;
+  --arcane-ink-soft: #111315;
+  --arcane-paper: #f1f2ef;
+  --arcane-paper-strong: #ffffff;
+  --arcane-blue: #00a9e8;
+  --arcane-blue-soft: #9fdcf0;
+  --arcane-muted: #9aa1a5;
+  --arcane-line-dark: rgba(255, 255, 255, 0.18);
+  --arcane-line-light: rgba(9, 10, 11, 0.18);
+  --font-sans: 'Plus Jakarta Sans', Arial, sans-serif;
+  --shell: min(1320px, calc(100vw - 112px));
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 96px;
+  --space-7: 144px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
