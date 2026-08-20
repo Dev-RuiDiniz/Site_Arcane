@@ -70,6 +70,22 @@ Abra `http://localhost:4173/`.
 - Evidências visuais: `output/playwright/arcane-local/`
 - Referência visual: `REFERENCIA-LIMBRAND.md`
 
+## Rastreamento para campanhas
+
+O site registra eventos no `window.dataLayer` mesmo sem credenciais externas configuradas. Para conectar Google Analytics 4 e conversões do Google Ads na publicação, copie `.env.example` para `.env` e preencha, quando disponíveis:
+
+- `VITE_GA_MEASUREMENT_ID`
+- `VITE_GOOGLE_ADS_CONVERSION_ID`
+- `VITE_GOOGLE_ADS_CONVERSION_LABEL`
+
+Eventos preparados:
+
+- `page_view` em cada mudança de rota;
+- `whatsapp_click` em links para o WhatsApp;
+- `generate_lead` após o formulário válido abrir o WhatsApp.
+
+Validação recomendada: abrir o site com o Tag Assistant ou as ferramentas de desenvolvedor, confirmar os eventos no `dataLayer` e verificar se o WhatsApp recebe nome, e-mail, empresa e contexto do projeto.
+
 ## Blog inicial
 
 O índice `/blog` apresenta três artigos editoriais completos, com leitura estimada, seções práticas, pontos de aplicação, referências externas e CTA comercial contextualizado para o WhatsApp:

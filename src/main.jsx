@@ -15,6 +15,8 @@ import { WhatsAppFloat } from './components/WhatsAppFloat.jsx';
 import { ArticleDetailPage } from './pages/ArticleDetailPage.jsx';
 import { ServiceDetailPage } from './pages/ServiceDetailPage.jsx';
 import { siteContent } from './app/content.js';
+import { applyRouteMetadata } from './app/metadata.js';
+import { initializeAnalytics, trackPageView, trackWhatsAppClick } from './app/analytics.js';
 import './styles/tokens.css';
 import './styles/global.css';
 import './styles/site.css';
@@ -35,6 +37,27 @@ function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => { document.body.classList.remove('menu-open'); window.removeEventListener('keydown', handleKeyDown); };
   }, [menuOpen]);
+
+  useEffect(() => {
+    applyRouteMetadata(route);
+    initializeAnalytics();
+    trackPageView(route.path);
+  }, [route]);
+
+  useEffect(() => {
+    function handleWhatsAppClick(event) {
+      const target = event.target instanceof Element ? event.target.closest('a[href*="wa.me/"]') : null;
+      if (!target) return;
+      trackWhatsAppClick({
+        source: 'link',
+        label: target.textContent.trim().replace(/\s+/g, ' ').slice(0, 100),
+        page_path: window.location.pathname,
+      });
+    }
+
+    document.addEventListener('click', handleWhatsAppClick);
+    return () => document.removeEventListener('click', handleWhatsAppClick);
+  }, []);
 
   function handleNavigate(event, path) {
     if (!path.startsWith('/')) return;

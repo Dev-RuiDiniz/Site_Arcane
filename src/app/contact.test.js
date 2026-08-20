@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildWhatsAppUrl, validateContactForm } from './contact.js';
+import { buildContactMessage, buildWhatsAppUrl, validateContactForm } from './contact.js';
 
 describe('contact form validation', () => {
   it('requires name, a valid email and a message', () => {
@@ -20,5 +20,14 @@ describe('contact form validation', () => {
 
   it('builds the commercial WhatsApp destination with an encoded message', () => {
     expect(buildWhatsAppUrl('Quero desenvolver um produto')).toBe('https://wa.me/5512991332258?text=Quero%20desenvolver%20um%20produto');
+  });
+
+  it('keeps the submitted email in the WhatsApp message', () => {
+    expect(buildContactMessage({
+      name: 'Rui',
+      email: 'rui@example.com',
+      company: 'Arcane',
+      message: 'Quero estruturar uma operação crítica.',
+    })).toBe('Olá! Meu nome é Rui. Meu e-mail é rui@example.com. Minha empresa é Arcane. Quero estruturar uma operação crítica.');
   });
 });

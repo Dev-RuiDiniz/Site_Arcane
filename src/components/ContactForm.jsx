@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { buildWhatsAppUrl, validateContactForm } from '../app/contact.js';
+import { buildContactMessage, buildWhatsAppUrl, validateContactForm } from '../app/contact.js';
+import { trackLead, trackWhatsAppClick } from '../app/analytics.js';
 import { ArrowIcon } from './Icons.jsx';
 
 const initialValues = { name: '', email: '', company: '', message: '' };
@@ -20,8 +21,24 @@ export function ContactForm() {
     const nextErrors = validateContactForm(values);
     setErrors(nextErrors);
     if (!Object.keys(nextErrors).length) {
-      const companyLine = values.company.trim() ? ` Minha empresa é ${values.company.trim()}.` : '';
-      window.location.assign(buildWhatsAppUrl(`Olá! Meu nome é ${values.name.trim()}.${companyLine} ${values.message.trim()}`));
+      const whatsappWindow = window.open(
+        buildWhatsAppUrl(buildContactMessage(values)),
+        '_blank',
+        'noopener,noreferrer',
+      );
+
+      if (!whatsappWindow) {
+        setErrors({ form: 'Não foi possível abrir o WhatsApp. Verifique o bloqueador de pop-ups e tente novamente.' });
+        return;
+      }
+
+      const context = {
+        source: 'contact_form',
+        page_path: window.location.pathname,
+      };
+      trackWhatsAppClick(context);
+      trackLead(context);
+      setSubmitted(true);
     }
   }
 
@@ -30,7 +47,7 @@ export function ContactForm() {
       <div className="form-success" role="status">
         <span className="success-mark">✓</span>
         <h3>Mensagem recebida.</h3>
-        <p>A equipe Arcane vai retornar pelo e-mail informado para entendermos o próximo movimento.</p>
+        <p>Sua mensagem foi preparada no WhatsApp. Confira a nova aba e toque em enviar para concluir o contato.</p>
         <button type="button" className="text-link" onClick={() => { setSubmitted(false); setValues(initialValues); }}>Enviar outra mensagem</button>
       </div>
     );
@@ -57,6 +74,7 @@ export function ContactForm() {
         <textarea id="message" name="message" value={values.message} onChange={handleChange} placeholder="Em que momento sua operação está?" rows="4" aria-invalid={Boolean(errors.message)} />
         {errors.message && <span className="field-error">{errors.message}</span>}
       </div>
+      {errors.form && <p className="field-error form-error" role="alert">{errors.form}</p>}
       <button className="button button-blue" type="submit">Enviar mensagem <ArrowIcon /></button>
     </form>
   );

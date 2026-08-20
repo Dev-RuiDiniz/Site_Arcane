@@ -77,6 +77,7 @@
 .service-content { max-width: 700px; }
 .service-content h3 { color: var(--arcane-paper); font-size: clamp(30px, 4vw, 58px); }
 .service-title-link { color: inherit; }
+.form-error { margin: -4px 0 12px; }
 .service-title-link:hover { color: var(--arcane-blue); }
 .service-subtitle { display: block; margin-top: 8px; color: var(--arcane-blue); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
 .service-content p { max-width: 570px; margin-top: 22px; color: #aab2b5; font-size: 15px; line-height: 1.7; }
