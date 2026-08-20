@@ -49,9 +49,27 @@ const metadataByPath = {
     title: 'Política de Cookies | Arcane Tecnologia',
     description: 'Entenda as categorias e finalidades dos cookies utilizados no site da Arcane.',
   },
+  '/blog/a-atencao-certa-comeca-antes-do-clique': {
+    title: 'A atenção certa começa antes do clique | Blog Arcane',
+    description: 'Uma presença digital consistente conecta posicionamento, conteúdo e conversão para transformar interesse em oportunidade.',
+  },
+  '/blog/quando-uma-ideia-pede-um-produto-proprio': {
+    title: 'Quando uma ideia pede um produto próprio | Blog Arcane',
+    description: 'O caminho entre uma boa ideia e um produto que funciona passa por contexto, experiência bem desenhada e tecnologia preparada para crescer.',
+  },
+  '/blog/automacao-boa-devolve-tempo-para-o-negocio': {
+    title: 'Automação boa devolve tempo para o negócio | Blog Arcane',
+    description: 'Conectar ferramentas, dados e inteligência libera o time do trabalho repetitivo e abre espaço para decisões melhores.',
+  },
+};
+
+const notFoundMetadata = {
+  title: 'Página não encontrada | Arcane Tecnologia',
+  description: 'O endereço acessado não corresponde a uma página publicada pela Arcane Tecnologia.',
 };
 
 export function getRouteMetadata(route = { path: '/' }) {
+  if (route.key === 'not-found') return notFoundMetadata;
   return metadataByPath[route.path] ?? defaultMetadata;
 }
 
@@ -75,10 +93,33 @@ function setCanonical(path) {
   element.href = `${window.location.origin}${path}`;
 }
 
+function removeCanonical() {
+  document.querySelector('link[rel="canonical"]')?.remove();
+}
+
+function setMeta(attribute, name, content) {
+  let element = document.querySelector(`meta[${attribute}="${name}"]`);
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, name);
+    document.head.appendChild(element);
+  }
+  element.content = content;
+}
+
 export function applyRouteMetadata(route) {
   if (typeof document === 'undefined') return;
   const metadata = getRouteMetadata(route);
   document.title = metadata.title;
   setMetaDescription(metadata.description);
-  setCanonical(route.path);
+  if (route.key === 'not-found') removeCanonical();
+  else setCanonical(route.path);
+  setMeta('property', 'og:title', metadata.title);
+  setMeta('property', 'og:description', metadata.description);
+  setMeta('property', 'og:url', `${window.location.origin}${window.location.pathname}`);
+  setMeta('property', 'og:type', route.key === 'article' ? 'article' : 'website');
+  setMeta('name', 'twitter:card', 'summary');
+  setMeta('name', 'twitter:title', metadata.title);
+  setMeta('name', 'twitter:description', metadata.description);
+  setMeta('name', 'robots', route.key === 'not-found' ? 'noindex,follow' : 'index,follow');
 }

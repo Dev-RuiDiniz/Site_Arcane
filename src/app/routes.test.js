@@ -3,10 +3,10 @@ import { getRoute, normalizePath } from './routes.js';
 import { siteContent } from './content.js';
 
 describe('Arcane site routes', () => {
-  it('normalizes trailing slashes and unknown paths to the home route', () => {
+  it('normalizes trailing slashes and exposes unknown paths as not found', () => {
     expect(normalizePath('/services/')).toBe('/services');
     expect(normalizePath('')).toBe('/');
-    expect(getRoute('/not-found')).toEqual({ path: '/', key: 'home' });
+    expect(getRoute('/not-found')).toEqual({ path: '/not-found', key: 'not-found' });
   });
 
   it('exposes every approved route with a page key', () => {

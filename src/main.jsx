@@ -14,6 +14,7 @@ import { LegalPage } from './pages/LegalPage.jsx';
 import { WhatsAppFloat } from './components/WhatsAppFloat.jsx';
 import { ArticleDetailPage } from './pages/ArticleDetailPage.jsx';
 import { ServiceDetailPage } from './pages/ServiceDetailPage.jsx';
+import { NotFoundPage } from './pages/NotFoundPage.jsx';
 import { siteContent } from './app/content.js';
 import { applyRouteMetadata } from './app/metadata.js';
 import { initializeAnalytics, trackPageView, trackWhatsAppClick } from './app/analytics.js';
@@ -86,6 +87,7 @@ function App() {
     page = service ? <ServiceDetailPage service={service} {...pageProps} /> : <ServicesPage {...pageProps} />;
   }
   if (['privacy', 'terms', 'cookies'].includes(route.key)) page = <LegalPage kind={route.key} {...pageProps} />;
+  if (route.key === 'not-found') page = <NotFoundPage {...pageProps} />;
 
   return <><Header currentPath={route.path} menuOpen={menuOpen} onMenuToggle={() => setMenuOpen((open) => !open)} onNavigate={handleNavigate} /><MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} onNavigate={handleNavigate} />{page}<SiteFooter onNavigate={handleNavigate} /><WhatsAppFloat /></>;
 }

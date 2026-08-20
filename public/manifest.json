@@ -1,0 +1,9 @@
+{
+  "name": "Arcane Tecnologia",
+  "short_name": "Arcane",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#090a0b",
+  "background_color": "#f1f2ef"
+}

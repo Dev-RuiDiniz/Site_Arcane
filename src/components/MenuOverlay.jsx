@@ -3,7 +3,7 @@ import { ArrowIcon } from './Icons.jsx';
 
 export function MenuOverlay({ open, onClose, onNavigate }) {
   return (
-    <aside id="site-menu" className={`menu-overlay${open ? ' is-open' : ''}`} aria-hidden={!open}>
+    <aside id="site-menu" className={`menu-overlay${open ? ' is-open' : ''}`} aria-hidden={!open} inert={!open}>
       <div className="menu-inner">
         <div className="menu-lede">
           <span className="eyebrow eyebrow-blue">NAVEGAÇÃO</span>

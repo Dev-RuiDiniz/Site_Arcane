@@ -1,5 +1,19 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/services", "destination": "/index.html" },
+    { "source": "/services/arcane-digital", "destination": "/index.html" },
+    { "source": "/services/arcane-labs", "destination": "/index.html" },
+    { "source": "/services/arcane-growth", "destination": "/index.html" },
+    { "source": "/projects", "destination": "/index.html" },
+    { "source": "/blog", "destination": "/index.html" },
+    { "source": "/blog/a-atencao-certa-comeca-antes-do-clique", "destination": "/index.html" },
+    { "source": "/blog/quando-uma-ideia-pede-um-produto-proprio", "destination": "/index.html" },
+    { "source": "/blog/automacao-boa-devolve-tempo-para-o-negocio", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/terms", "destination": "/index.html" },
+    { "source": "/cookies", "destination": "/index.html" }
   ]
 }

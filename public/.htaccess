@@ -6,5 +6,5 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Let the React SPA resolve client-side routes on direct visits.
-RewriteRule ^ index.html [L]
+# Let the React SPA resolve approved client-side routes on direct visits.
+RewriteRule ^(?:services/?|services/arcane-digital/?|services/arcane-labs/?|services/arcane-growth/?|projects/?|blog/?|blog/a-atencao-certa-comeca-antes-do-clique/?|blog/quando-uma-ideia-pede-um-produto-proprio/?|blog/automacao-boa-devolve-tempo-para-o-negocio/?|about/?|contact/?|privacy/?|terms/?|cookies/?)$ index.html [L]

@@ -24,5 +24,5 @@ export function normalizePath(pathname = '/') {
 
 export function getRoute(pathname = '/') {
   const normalized = normalizePath(pathname);
-  return routeTable.find((route) => route.path === normalized) ?? routeTable[0];
+  return routeTable.find((route) => route.path === normalized) ?? { path: normalized, key: 'not-found' };
 }
