@@ -25,6 +25,14 @@ import './styles/site.css';
 function App() {
   const [route, setRoute] = useState(() => getRoute(window.location.pathname));
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(false);
+
+  useEffect(() => {
+    const updateHeaderVisibility = () => setHeaderVisible(window.scrollY > 24);
+    updateHeaderVisibility();
+    window.addEventListener('scroll', updateHeaderVisibility, { passive: true });
+    return () => window.removeEventListener('scroll', updateHeaderVisibility);
+  }, []);
 
   useEffect(() => {
     const handlePopState = () => setRoute(getRoute(window.location.pathname));
@@ -89,7 +97,7 @@ function App() {
   if (['privacy', 'terms', 'cookies'].includes(route.key)) page = <LegalPage kind={route.key} {...pageProps} />;
   if (route.key === 'not-found') page = <NotFoundPage {...pageProps} />;
 
-  return <><Header currentPath={route.path} menuOpen={menuOpen} onMenuToggle={() => setMenuOpen((open) => !open)} onNavigate={handleNavigate} /><MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} onNavigate={handleNavigate} />{page}<SiteFooter onNavigate={handleNavigate} /><WhatsAppFloat /></>;
+  return <><Header currentPath={route.path} isVisible={route.key !== 'home' || headerVisible || menuOpen} menuOpen={menuOpen} onMenuToggle={() => setMenuOpen((open) => !open)} onNavigate={handleNavigate} /><MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} onNavigate={handleNavigate} />{page}<SiteFooter onNavigate={handleNavigate} /><WhatsAppFloat /></>;
 }
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

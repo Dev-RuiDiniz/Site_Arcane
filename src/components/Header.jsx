@@ -1,9 +1,13 @@
 import { siteContent } from '../app/content.js';
 import { MenuIcon } from './Icons.jsx';
 
-export function Header({ currentPath, menuOpen, onMenuToggle, onNavigate }) {
+export function Header({ currentPath, isVisible = false, menuOpen, onMenuToggle, onNavigate }) {
+  const classNames = ['site-header'];
+  if (isVisible) classNames.push('is-visible');
+  if (menuOpen) classNames.push('menu-is-open');
+
   return (
-    <header className={`site-header${menuOpen ? ' menu-is-open' : ''}`}>
+    <header className={classNames.join(' ')}>
       <a className="wordmark" href="/" onClick={(event) => onNavigate(event, '/') } aria-label="Arcane Tecnologia — início">
         <img className="brand-logo" src={siteContent.brandAssets.logo} alt="Arcane Tecnologia" />
       </a>

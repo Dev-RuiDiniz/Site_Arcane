@@ -17,6 +17,7 @@ body.menu-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
 button { cursor: pointer; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--arcane-blue); outline-offset: 4px; }
 
 h1, h2, h3, p { margin: 0; }
 h1, h2, h3 { font-weight: 500; letter-spacing: -0.06em; line-height: .95; }

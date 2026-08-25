@@ -11,19 +11,18 @@ export function HomePage({ onNavigate }) {
     <main>
       <section className="hero band-dark">
         <div className="hero-copy">
+          <span className="eyebrow hero-eyebrow">{siteContent.hero.eyebrow}</span>
           <h1>{siteContent.hero.title}</h1>
           <p>{siteContent.hero.text}</p>
           <div className="hero-actions">
-            <a className="button button-blue" href={siteContent.primaryCta.href} onClick={(event) => onNavigate(event, siteContent.primaryCta.href)}>{siteContent.primaryCta.label} <ArrowIcon /></a>
-            <a className="button button-outline" href={siteContent.secondaryCta.href} onClick={(event) => onNavigate(event, siteContent.secondaryCta.href)}>{siteContent.secondaryCta.label} <ArrowIcon /></a>
+            <a className="button button-blue hero-primary-cta" href={siteContent.primaryCta.href} onClick={(event) => onNavigate(event, siteContent.primaryCta.href)}>{siteContent.primaryCta.label}</a>
           </div>
         </div>
-        <div className="hero-visual" aria-label="Vídeo institucional da Arcane Tecnologia">
+        <div className="hero-visual" role="img" aria-label="Vídeo institucional da Arcane Tecnologia">
           <video className="hero-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true">
             <source src={siteContent.brandAssets.heroVideo} type="video/mp4" />
           </video>
         </div>
-        <div className="hero-proof">{siteContent.hero.proof.map((item, index) => <span key={item}><b>0{index + 1}</b>{item}</span>)}</div>
       </section>
 
       <section className="statement band-paper">
@@ -40,7 +39,7 @@ export function HomePage({ onNavigate }) {
       <section className="services-section band-dark">
         <SectionIntro dark eyebrow="NOSSAS FRENTES" title="Da presença digital à tecnologia própria." />
         <ServiceList services={siteContent.services} onNavigate={onNavigate} />
-        <a className="button button-outline" href="/services" onClick={(event) => onNavigate(event, '/services')}>Ver serviços <ArrowIcon /></a>
+        <a className="button button-blue services-section-cta" href="/services" onClick={(event) => onNavigate(event, '/services')}>Ver serviços</a>
       </section>
 
       <section className="projects-section band-paper">

@@ -2,10 +2,14 @@ import { ArrowIcon } from './Icons.jsx';
 
 export function ServiceList({ services, onNavigate }) {
   return (
-    <div className="service-list">
+    <div className={`service-list${services.some((service) => service.video) ? ' service-list-has-video' : ''}`}>
       {services.map((service) => (
-        <article className="service-row" key={service.number}>
-          <span className="service-number">{service.number}</span>
+        <article className={`service-row${service.video ? ' service-row-video' : ''}`} key={service.slug}>
+          {service.video ? (
+            <video className="service-background" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+              <source src={service.video} type="video/mp4" />
+            </video>
+          ) : null}
           <div className="service-content">
             <h3><a className="service-title-link" href={service.detailHref} onClick={(event) => onNavigate(event, service.detailHref)}>{service.title}</a></h3>
             <span className="service-subtitle">{service.subtitle}</span>

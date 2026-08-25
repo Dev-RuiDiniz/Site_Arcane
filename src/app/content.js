@@ -15,7 +15,6 @@ export const siteContent = {
   descriptor: 'Estratégia e tecnologia para transformar ideias em negócios digitais que funcionam.',
   whatsapp,
   primaryCta: { label: 'Agendar uma conversa', href: buildWhatsAppUrl(whatsapp.defaultMessage) },
-  secondaryCta: { label: 'Conhecer nossos projetos', href: '/projects' },
   navigation: [
     { label: 'Início', href: '/' },
     { label: 'Serviços', href: '/services' },
@@ -31,9 +30,9 @@ export const siteContent = {
     location: 'São Paulo, Brasil',
   },
   hero: {
-    title: 'Estratégia e tecnologia para transformar ideias em negócios digitais que funcionam.',
+    eyebrow: 'ARCANE TECNOLOGIA',
+    title: 'Estratégia e tecnologia para transformar ideias em negócios.',
     text: 'Criamos experiências digitais, desenvolvemos produtos e conectamos processos para empresas que querem vender mais, operar melhor e construir tecnologia própria.',
-    proof: ['Atraia', 'Construa', 'Escale'],
   },
   services: [
     {
@@ -42,6 +41,7 @@ export const siteContent = {
       detailHref: '/services/arcane-digital',
       title: 'Arcane Digital',
       subtitle: 'Landing Pages, Campanhas, Conteúdo e Redes Sociais',
+      video: '/assets/digital.mp4',
       text: 'Criamos a presença digital que transforma atenção em oportunidade. Landing pages de alta conversão, campanhas, identidade para lançamentos, materiais comerciais, media kits e conteúdo para redes sociais — tudo conectado à estratégia de posicionamento e aquisição da marca.',
       cta: 'Quero fortalecer minha presença digital',
       href: buildWhatsAppUrl('Olá! Quero fortalecer minha presença digital com a Arcane.'),
@@ -91,6 +91,7 @@ export const siteContent = {
       detailHref: '/services/arcane-labs',
       title: 'Arcane Labs',
       subtitle: 'Sistemas, Aplicativos e Produtos Digitais',
+      video: '/assets/labs.mp4',
       text: 'Transformamos ideias e operações em produtos digitais próprios. Desenvolvemos sistemas web, plataformas SaaS, aplicativos e soluções sob medida com arquitetura escalável, experiência bem desenhada e tecnologia preparada para acompanhar o crescimento do negócio.',
       cta: 'Quero desenvolver um produto',
       href: buildWhatsAppUrl('Olá! Quero desenvolver um produto digital com a Arcane.'),
@@ -140,6 +141,7 @@ export const siteContent = {
       detailHref: '/services/arcane-growth',
       title: 'Arcane Growth',
       subtitle: 'IA, Automações e Integrações',
+      video: '/assets/growth.mp4',
       text: 'Conectamos ferramentas, dados e inteligência para eliminar trabalho manual e acelerar a operação. Automatizamos processos, integramos CRM, WhatsApp, APIs e sistemas internos e aplicamos IA onde ela realmente gera ganho de produtividade, velocidade e conversão.',
       cta: 'Quero automatizar minha operação',
       href: buildWhatsAppUrl('Olá! Quero automatizar minha operação com a Arcane.'),

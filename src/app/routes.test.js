@@ -31,10 +31,10 @@ describe('Arcane site routes', () => {
 
   it('exposes the approved commercial positioning and service architecture', () => {
     expect(siteContent.primaryCta.label).toBe('Agendar uma conversa');
-    expect(siteContent.secondaryCta).toEqual({ label: 'Conhecer nossos projetos', href: '/projects' });
-    expect(siteContent.hero.title).toBe('Estratégia e tecnologia para transformar ideias em negócios digitais que funcionam.');
+    expect(siteContent.secondaryCta).toBeUndefined();
+    expect(siteContent.hero.title).toBe('Estratégia e tecnologia para transformar ideias em negócios.');
     expect(siteContent.hero.text).toBe('Criamos experiências digitais, desenvolvemos produtos e conectamos processos para empresas que querem vender mais, operar melhor e construir tecnologia própria.');
-    expect(siteContent.hero.proof).toEqual(['Atraia', 'Construa', 'Escale']);
+    expect(siteContent.hero.proof).toBeUndefined();
     expect(siteContent.services.map((service) => service.title)).toEqual(['Arcane Digital', 'Arcane Labs', 'Arcane Growth']);
     siteContent.services.forEach((service) => {
       expect(service.subtitle).toBeTruthy();
