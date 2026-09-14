@@ -1,0 +1,45 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Conta do Google
+    - generic [ref=e5]: Rui Francisco de Paula
+    - generic [ref=e6]: rui.pdiniz@gmail.com
+  - generic [ref=e7]:
+    - banner [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - button "Menu principal" [ref=e12] [cursor=pointer]
+          - link "Google Search Console" [ref=e17] [cursor=pointer]:
+            - /url: ./search-console/welcome
+        - generic [ref=e22]:
+          - button "Ajuda" [ref=e24] [cursor=pointer]:
+            - generic [ref=e25]: 
+          - button "Configurações de usuário" [ref=e29] [cursor=pointer]
+        - generic [ref=e35]:
+          - button "Google Apps" [ref=e39] [cursor=pointer]
+          - 'button "Conta do Google: Rui Francisco de Paula (rui.pdiniz@gmail.com)" [active] [ref=e45] [cursor=pointer]'
+    - generic [ref=e56]:
+      - generic [ref=e59]:
+        - heading "Acompanhe e melhore seu desempenho na Pesquisa Google" [level=1] [ref=e60]
+        - button "Adicionar um site" [ref=e64] [cursor=pointer]:
+          - generic [ref=e66]: public
+        - generic [ref=e69]:
+          - generic [ref=e70]: Novo
+          - generic [ref=e71]: Adicione uma conta de plataforma ou canal para descobrir como os visitantes encontram seu conteúdo na Pesquisa Google
+        - generic [ref=e73]:
+          - button "Instagram Adicionar" [ref=e75] [cursor=pointer]:
+            - generic [ref=e76]:
+              - generic [ref=e77]: Instagram
+              - generic [ref=e80]: Adicionar
+          - button "TikTok Adicionar" [ref=e82] [cursor=pointer]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: TikTok
+              - generic [ref=e87]: Adicionar
+          - button "X Adicionar" [ref=e89] [cursor=pointer]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: X
+              - generic [ref=e94]: Adicionar
+          - button "YouTube Adicionar" [ref=e96] [cursor=pointer]:
+            - generic [ref=e97]:
+              - generic [ref=e98]: YouTube
+              - generic [ref=e101]: Adicionar
+      - button "Já começou? Termine a verificação" [ref=e103] [cursor=pointer]
