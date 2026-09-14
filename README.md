@@ -32,8 +32,8 @@ Ativos oficiais utilizados:
 
 - `public/assets/arcane-logo-horizontal.png`
 - `public/assets/video-fundo.mp4` — fonte original do vídeo institucional do hero, mantida como ativo-fonte.
-- `public/assets/video-fundo-optimized.mp4` — versão desktop do hero, 960×540, sem áudio e com carregamento otimizado.
-- `public/assets/video-fundo-mobile.mp4` — versão mobile do hero, 640×360, sem áudio e com bitrate reduzido.
+- `public/assets/video-fundo-optimized.mp4` — versão desktop do hero, 720×406, sem áudio e com carregamento otimizado.
+- `public/assets/video-fundo-mobile.mp4` — versão mobile do hero, 480×270, sem áudio e com bitrate reduzido.
 - `public/assets/video-fundo-poster.jpg` — poster imediato do hero para a primeira pintura da página.
 - `public/assets/whatsapp-logo-green.svg` — símbolo oficial do WhatsApp, obtido a partir do ativo publicado com fonte Meta.
 
