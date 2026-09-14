@@ -31,6 +31,7 @@ Tem uma campanha, ideia, produto ou processo que precisa evoluir? [Agende uma co
 Ativos oficiais utilizados:
 
 - `public/assets/arcane-logo-horizontal.png`
+- `public/assets/arcane-logo-horizontal-small.png` — versão otimizada para navegação e rodapé.
 - `public/assets/video-fundo.mp4` — fonte original do vídeo institucional do hero, mantida como ativo-fonte.
 - `public/assets/video-fundo-optimized.mp4` — versão desktop do hero, 720×406, sem áudio e com carregamento otimizado.
 - `public/assets/video-fundo-mobile.mp4` — versão mobile do hero, 480×270, sem áudio e com bitrate reduzido.
@@ -100,10 +101,13 @@ O build gera um documento HTML com conteúdo institucional completo e metadados 
 - O domínio `www` é consolidado no domínio canônico sem `www` por redirect permanente.
 - URLs antigas conhecidas redirecionam para `/contact` ou para a divisão atual correspondente.
 - O hero usa poster imediato, vídeo desktop otimizado e uma fonte mobile específica; o vídeo original não é carregado pelo site publicado.
+- O vídeo do hero é ativado depois da primeira pintura para priorizar o conteúdo e mantém poster, versão desktop e versão mobile.
 - O prerender é validado em cada build para que os conteúdos de serviços, artigos, cases, contato e páginas legais existam no HTML inicial.
 - A página inicial mantém a metatag pública de verificação do Google Search Console para a propriedade HTTPS canônica.
+- A propriedade HTTPS canônica foi verificada no Search Console; o sitemap foi enviado e processado com 15 URLs encontradas.
+- A medição pública final foi executada com Lighthouse mobile em rede simulada; o ambiente não disponibiliza um aparelho físico nem dados de campo suficientes no PageSpeed.
 
-Depois da publicação, verifique o domínio como propriedade DNS no Google Search Console e envie `https://arcanetecnologia.com.br/sitemap.xml`. O Search Console e o Google Ads dependem de credenciais da conta; os IDs opcionais ficam em `.env` e não são inventados no código.
+Uma propriedade de domínio DNS no Search Console continua opcional e exige um registro TXT no provedor DNS. O Search Console e o Google Ads dependem de credenciais da conta; os IDs opcionais ficam em `.env` e não são inventados no código.
 
 ## Blog inicial
 

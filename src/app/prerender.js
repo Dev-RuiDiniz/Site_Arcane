@@ -74,7 +74,7 @@ function renderClosingCta() {
 }
 
 function renderHeroVideo() {
-  return `<div class="hero-visual" role="img" aria-label="Vídeo institucional da Arcane Tecnologia"><video class="hero-video" autoPlay loop muted playsInline preload="none" poster="/assets/video-fundo-poster.jpg" aria-hidden="true"><source media="(max-width: 760px)" src="/assets/video-fundo-mobile.mp4" type="video/mp4" /><source src="/assets/video-fundo-optimized.mp4" type="video/mp4" /></video><div class="hero-visual-overlay" aria-hidden="true"></div></div>`;
+  return `<div class="hero-visual" role="img" aria-label="Vídeo institucional da Arcane Tecnologia"><video class="hero-video" autoPlay loop muted playsInline preload="none" poster="/assets/video-fundo-poster.jpg" aria-hidden="true"></video><div class="hero-visual-overlay" aria-hidden="true"></div></div>`;
 }
 
 function renderServiceRows(services = siteContent.services) {

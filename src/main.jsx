@@ -84,8 +84,12 @@ function App() {
   useEffect(() => {
     if (route.key === 'redirect') return;
     applyRouteMetadata(route);
-    initializeAnalytics();
-    trackPageView(route.path);
+    const sendPageView = () => {
+      initializeAnalytics();
+      trackPageView(route.path);
+    };
+    const analyticsTimeout = window.setTimeout(sendPageView, 2400);
+    return () => window.clearTimeout(analyticsTimeout);
   }, [route]);
 
   useEffect(() => {

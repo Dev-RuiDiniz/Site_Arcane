@@ -16,7 +16,7 @@ const primaryNavigation = [
 export const siteContent = {
   brand: 'ARCANE',
   brandAssets: {
-    logo: '/assets/arcane-logo-horizontal.png',
+    logo: '/assets/arcane-logo-horizontal-small.png',
     heroVideo: '/assets/video-fundo-optimized.mp4',
     heroVideoMobile: '/assets/video-fundo-mobile.mp4',
     heroPoster: '/assets/video-fundo-poster.jpg',

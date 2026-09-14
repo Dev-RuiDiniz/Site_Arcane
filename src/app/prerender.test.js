@@ -2,13 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { renderStaticPage } from './prerender.js';
 
 describe('static route rendering', () => {
-  it('publishes the home content and responsive hero media before JavaScript', () => {
+  it('publishes the home content and immediate hero poster before JavaScript', () => {
     const html = renderStaticPage({ path: '/', key: 'home' });
 
     expect(html).toContain('<h1><span>ESTRATÉGIA E</span>');
     expect(html).toContain('video-fundo-poster.jpg');
-    expect(html).toContain('video-fundo-mobile.mp4');
-    expect(html).toContain('video-fundo-optimized.mp4');
+    expect(html).not.toContain('<source');
     expect(html).toContain('Arcane Rise');
   });
 

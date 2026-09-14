@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { siteContent } from '../app/content.js';
 import { ArrowIcon } from '../components/Icons.jsx';
 import { SectionIntro } from '../components/SectionIntro.jsx';
@@ -7,6 +8,13 @@ import { ArticleGrid } from '../components/ArticleGrid.jsx';
 import { ClosingCta } from '../components/ClosingCta.jsx';
 
 export function HomePage({ onNavigate }) {
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => setShouldLoadVideo(true), 1800);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   return (
     <main>
       <section className="hero band-dark">
@@ -27,8 +35,10 @@ export function HomePage({ onNavigate }) {
         </div>
         <div className="hero-visual" role="img" aria-label="Vídeo institucional da Arcane Tecnologia">
           <video className="hero-video" autoPlay loop muted playsInline preload="none" poster={siteContent.brandAssets.heroPoster} aria-hidden="true">
-            <source media="(max-width: 760px)" src={siteContent.brandAssets.heroVideoMobile} type="video/mp4" />
-            <source src={siteContent.brandAssets.heroVideo} type="video/mp4" />
+            {shouldLoadVideo ? <>
+              <source media="(max-width: 760px)" src={siteContent.brandAssets.heroVideoMobile} type="video/mp4" />
+              <source src={siteContent.brandAssets.heroVideo} type="video/mp4" />
+            </> : null}
           </video>
           <div className="hero-visual-overlay" aria-hidden="true" />
         </div>
