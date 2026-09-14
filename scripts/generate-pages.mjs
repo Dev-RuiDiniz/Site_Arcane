@@ -88,8 +88,8 @@ function renderRoute(template, route) {
   html = replaceMeta(html, 'name', 'twitter:image', `${siteUrl}${socialImage}`);
   html = replaceMeta(html, 'name', 'twitter:image:alt', 'Arcane Tecnologia');
   html = replaceMeta(html, 'property', 'og:image:type', 'image/png');
-  html = replaceMeta(html, 'property', 'og:image:width', '1200');
-  html = replaceMeta(html, 'property', 'og:image:height', '360');
+  html = replaceMeta(html, 'property', 'og:image:width', '1254');
+  html = replaceMeta(html, 'property', 'og:image:height', '1254');
   html = replaceCanonical(html, pageUrl);
   html = replaceStructuredData(html, getStructuredData(route));
   return replaceRoot(html, route);

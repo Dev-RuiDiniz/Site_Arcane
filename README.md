@@ -30,8 +30,8 @@ Tem uma campanha, ideia, produto ou processo que precisa evoluir? [Agende uma co
 
 Ativos oficiais utilizados:
 
-- `public/assets/arcane-logo-horizontal.png`
-- `public/assets/arcane-logo-horizontal-small.png` — versão otimizada para navegação e rodapé.
+- `public/assets/logo-arcane.png` — logo oficial enviado pela Arcane, usado em Open Graph, Twitter Cards e dados estruturados.
+- `public/assets/logo-arcane-small.webp` — versão otimizada para navegação e rodapé.
 - `public/assets/video-fundo.mp4` — fonte original do vídeo institucional do hero, mantida como ativo-fonte.
 - `public/assets/video-fundo-optimized.mp4` — versão desktop do hero, 720×406, sem áudio e com carregamento otimizado.
 - `public/assets/video-fundo-mobile.mp4` — versão mobile do hero, 480×270, sem áudio e com bitrate reduzido.

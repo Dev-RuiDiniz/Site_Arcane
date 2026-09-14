@@ -4,7 +4,7 @@ const defaultMetadata = {
 };
 
 export const siteUrl = 'https://arcanetecnologia.com.br';
-export const socialImage = '/assets/arcane-logo-horizontal.png';
+export const socialImage = '/assets/logo-arcane.png';
 
 const metadataByPath = {
   '/': defaultMetadata,
@@ -273,8 +273,8 @@ export function applyRouteMetadata(route) {
   setMeta('property', 'og:image', `${siteUrl}${socialImage}`);
   setMeta('property', 'og:image:alt', 'Arcane Tecnologia');
   setMeta('property', 'og:image:type', 'image/png');
-  setMeta('property', 'og:image:width', '1200');
-  setMeta('property', 'og:image:height', '360');
+  setMeta('property', 'og:image:width', '1254');
+  setMeta('property', 'og:image:height', '1254');
   setMeta('name', 'twitter:card', 'summary');
   setMeta('name', 'twitter:title', metadata.title);
   setMeta('name', 'twitter:description', metadata.description);

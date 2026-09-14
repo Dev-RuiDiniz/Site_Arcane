@@ -64,7 +64,7 @@ describe('Arcane site routes', () => {
 
   it('uses the supplied Arcane brand assets in the hero and site chrome', () => {
     expect(siteContent.brandAssets).toEqual({
-      logo: '/assets/arcane-logo-horizontal-small.png',
+      logo: '/assets/logo-arcane-small.webp',
       heroVideo: '/assets/video-fundo-optimized.mp4',
       heroVideoMobile: '/assets/video-fundo-mobile.mp4',
       heroPoster: '/assets/video-fundo-poster.jpg',
