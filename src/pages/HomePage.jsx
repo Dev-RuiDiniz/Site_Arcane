@@ -26,7 +26,8 @@ export function HomePage({ onNavigate }) {
           </div>
         </div>
         <div className="hero-visual" role="img" aria-label="Vídeo institucional da Arcane Tecnologia">
-          <video className="hero-video" autoPlay loop muted playsInline preload="none" aria-hidden="true">
+          <video className="hero-video" autoPlay loop muted playsInline preload="none" poster={siteContent.brandAssets.heroPoster} aria-hidden="true">
+            <source media="(max-width: 760px)" src={siteContent.brandAssets.heroVideoMobile} type="video/mp4" />
             <source src={siteContent.brandAssets.heroVideo} type="video/mp4" />
           </video>
           <div className="hero-visual-overlay" aria-hidden="true" />

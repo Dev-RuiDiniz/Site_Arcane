@@ -35,6 +35,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 .button:hover { transform: translateY(-2px); }
 .button-blue { background: var(--arcane-blue); color: var(--arcane-ink); }
 .button-blue:hover { background: #70d5f6; }
+
+/* Blue remains the accent on dark surfaces; use a darker ink-blue on paper for WCAG AA text contrast. */
+.band-paper .section-kicker,
+.band-paper .eyebrow-blue,
+.band-paper .article-meta,
+.band-paper .journey-step span,
+.band-paper .service-subtitle,
+.band-paper .about-division-top { color: #006781; }
 .button-dark { background: var(--arcane-ink); color: var(--arcane-paper); }
 .button-outline { border-color: var(--arcane-line-dark); color: var(--arcane-paper); }
 .button-outline:hover { border-color: var(--arcane-blue); color: var(--arcane-blue); }

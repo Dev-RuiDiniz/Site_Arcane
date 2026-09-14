@@ -17,7 +17,9 @@ export const siteContent = {
   brand: 'ARCANE',
   brandAssets: {
     logo: '/assets/arcane-logo-horizontal.png',
-    heroVideo: '/assets/video-fundo.mp4',
+    heroVideo: '/assets/video-fundo-optimized.mp4',
+    heroVideoMobile: '/assets/video-fundo-mobile.mp4',
+    heroPoster: '/assets/video-fundo-poster.jpg',
     whatsappLogo: '/assets/whatsapp-logo-green.svg',
   },
   descriptor: 'Estratégia e tecnologia para construir negócios mais fortes no digital.',

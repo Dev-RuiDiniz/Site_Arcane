@@ -8,7 +8,7 @@ export function WhatsAppFloat() {
       href={buildWhatsAppUrl(siteContent.whatsapp.defaultMessage)}
       target="_blank"
       rel="noreferrer"
-      aria-label="Fale com a Arcane pelo WhatsApp"
+      aria-label="Fale no WhatsApp"
     >
       <img className="whatsapp-logo" src={siteContent.brandAssets.whatsappLogo} alt="" />
       <span>Fale no WhatsApp</span>

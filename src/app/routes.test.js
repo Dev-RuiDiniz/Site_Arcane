@@ -65,7 +65,9 @@ describe('Arcane site routes', () => {
   it('uses the supplied Arcane brand assets in the hero and site chrome', () => {
     expect(siteContent.brandAssets).toEqual({
       logo: '/assets/arcane-logo-horizontal.png',
-      heroVideo: '/assets/video-fundo.mp4',
+      heroVideo: '/assets/video-fundo-optimized.mp4',
+      heroVideoMobile: '/assets/video-fundo-mobile.mp4',
+      heroPoster: '/assets/video-fundo-poster.jpg',
       whatsappLogo: '/assets/whatsapp-logo-green.svg',
     });
     expect(siteContent.whatsapp.href).toBe('https://wa.me/5512991332258');

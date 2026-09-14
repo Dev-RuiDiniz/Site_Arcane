@@ -31,7 +31,10 @@ Tem uma campanha, ideia, produto ou processo que precisa evoluir? [Agende uma co
 Ativos oficiais utilizados:
 
 - `public/assets/arcane-logo-horizontal.png`
-- `public/assets/video-fundo.mp4` — vídeo institucional do hero, 1280×720, 55 segundos.
+- `public/assets/video-fundo.mp4` — fonte original do vídeo institucional do hero, mantida como ativo-fonte.
+- `public/assets/video-fundo-optimized.mp4` — versão desktop do hero, 960×540, sem áudio e com carregamento otimizado.
+- `public/assets/video-fundo-mobile.mp4` — versão mobile do hero, 640×360, sem áudio e com bitrate reduzido.
+- `public/assets/video-fundo-poster.jpg` — poster imediato do hero para a primeira pintura da página.
 - `public/assets/whatsapp-logo-green.svg` — símbolo oficial do WhatsApp, obtido a partir do ativo publicado com fonte Meta.
 
 Contato comercial: CTAs e botão flutuante direcionam para o WhatsApp `https://wa.me/5512991332258`, com mensagens contextuais por serviço.
@@ -88,7 +91,7 @@ Validação recomendada: abrir o site com o Tag Assistant ou as ferramentas de d
 
 ## SEO e descoberta orgânica
 
-O build gera um documento HTML com metadados específicos para cada rota publicada, além do fallback SPA. Isso mantém title, description, canonical, Open Graph, Twitter Card e JSON-LD disponíveis antes da execução do React:
+O build gera um documento HTML com conteúdo institucional completo e metadados específicos para cada rota publicada, além do fallback SPA. Isso mantém títulos, textos, links internos, CTAs, title, description, canonical, Open Graph, Twitter Card e JSON-LD disponíveis antes da execução do React:
 
 - `/robots.txt` permite rastreamento e aponta para o sitemap oficial.
 - `/sitemap.xml` lista somente as rotas públicas atuais, com URLs canônicas em HTTPS.
@@ -96,6 +99,9 @@ O build gera um documento HTML com metadados específicos para cada rota publica
 - A home publica `Organization` e `WebSite`; serviços publicam `Service`; artigos publicam `Article` e breadcrumbs.
 - O domínio `www` é consolidado no domínio canônico sem `www` por redirect permanente.
 - URLs antigas conhecidas redirecionam para `/contact` ou para a divisão atual correspondente.
+- O hero usa poster imediato, vídeo desktop otimizado e uma fonte mobile específica; o vídeo original não é carregado pelo site publicado.
+- O prerender é validado em cada build para que os conteúdos de serviços, artigos, cases, contato e páginas legais existam no HTML inicial.
+- A página inicial mantém a metatag pública de verificação do Google Search Console para a propriedade HTTPS canônica.
 
 Depois da publicação, verifique o domínio como propriedade DNS no Google Search Console e envie `https://arcanetecnologia.com.br/sitemap.xml`. O Search Console e o Google Ads dependem de credenciais da conta; os IDs opcionais ficam em `.env` e não são inventados no código.
 

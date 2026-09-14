@@ -8,6 +8,7 @@ import {
   siteUrl,
   socialImage,
 } from '../src/app/metadata.js';
+import { renderStaticPage } from '../src/app/prerender.js';
 
 const distDirectory = fileURLToPath(new URL('../dist/', import.meta.url));
 const templatePath = path.join(distDirectory, 'index.html');
@@ -59,6 +60,13 @@ function replaceStructuredData(html, data) {
   return withoutStructuredData.replace('</head>', `    ${tag}\n  </head>`);
 }
 
+function replaceRoot(html, route) {
+  const staticPage = renderStaticPage(route);
+  const pattern = /<div\s+id="root"><\/div>/i;
+  const replacement = `<div id="root">${staticPage}</div>`;
+  return pattern.test(html) ? html.replace(pattern, replacement) : html;
+}
+
 function renderRoute(template, route) {
   const metadata = getRouteMetadata(route);
   const pageUrl = `${siteUrl}${route.path}`;
@@ -83,7 +91,8 @@ function renderRoute(template, route) {
   html = replaceMeta(html, 'property', 'og:image:width', '1200');
   html = replaceMeta(html, 'property', 'og:image:height', '360');
   html = replaceCanonical(html, pageUrl);
-  return replaceStructuredData(html, getStructuredData(route));
+  html = replaceStructuredData(html, getStructuredData(route));
+  return replaceRoot(html, route);
 }
 
 function renderNotFound(template) {
@@ -100,7 +109,8 @@ function renderNotFound(template) {
   html = replaceMeta(html, 'name', 'twitter:title', metadata.title);
   html = replaceMeta(html, 'name', 'twitter:description', metadata.description);
   html = removeCanonical(html);
-  return replaceStructuredData(html, null);
+  html = replaceStructuredData(html, null);
+  return replaceRoot(html, { path: '/404', key: 'not-found' });
 }
 
 const template = await fs.readFile(templatePath, 'utf8');
