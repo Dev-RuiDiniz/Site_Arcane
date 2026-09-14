@@ -32,6 +32,8 @@ Ativos oficiais utilizados:
 
 - `public/assets/logo-arcane.png` — logo oficial enviado pela Arcane, usado em Open Graph, Twitter Cards e dados estruturados.
 - `public/assets/logo-arcane-small.webp` — versão otimizada para navegação e rodapé.
+- `public/favicon.ico`, `public/favicon-16x16.png` e `public/favicon-32x32.png` — favicons do navegador usando apenas o símbolo Arcane.
+- `public/apple-touch-icon.png`, `public/favicon-192x192.png` e `public/favicon-512x512.png` — ícones para dispositivos e atalhos instaláveis via manifest.
 - `public/assets/video-fundo.mp4` — fonte original do vídeo institucional do hero, mantida como ativo-fonte.
 - `public/assets/video-fundo-optimized.mp4` — versão desktop do hero, 720×406, sem áudio e com carregamento otimizado.
 - `public/assets/video-fundo-mobile.mp4` — versão mobile do hero, 480×270, sem áudio e com bitrate reduzido.
