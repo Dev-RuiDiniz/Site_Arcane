@@ -3,8 +3,8 @@ const defaultMetadata = {
   description: 'Estratégia e tecnologia para transformar ideias em negócios — presença digital, experiências e tecnologia para crescer com estrutura.',
 };
 
-const siteUrl = 'https://arcanetecnologia.com.br';
-const socialImage = '/assets/arcane-logo-horizontal.png';
+export const siteUrl = 'https://arcanetecnologia.com.br';
+export const socialImage = '/assets/arcane-logo-horizontal.png';
 
 const metadataByPath = {
   '/': defaultMetadata,
@@ -77,6 +77,139 @@ export function getRouteMetadata(route = { path: '/' }) {
   return metadataByPath[route.path] ?? defaultMetadata;
 }
 
+const organizationId = `${siteUrl}/#organization`;
+
+const organizationData = {
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: 'Arcane Tecnologia',
+  url: `${siteUrl}/`,
+  logo: `${siteUrl}${socialImage}`,
+  email: 'comercial@arcanetecnologia.com.br',
+  telephone: '+55 12 99133-2258',
+  contactPoint: [{
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: 'comercial@arcanetecnologia.com.br',
+    telephone: '+55 12 99133-2258',
+    availableLanguage: ['pt-BR'],
+  }],
+};
+
+const serviceDataByPath = {
+  '/services/arcane-digital': {
+    name: 'Arcane Digital',
+    serviceType: 'Presença digital, branding, web, conteúdo, campanhas e SEO',
+  },
+  '/services/arcane-growth': {
+    name: 'Arcane Growth',
+    serviceType: 'Aplicativos, comunidades, membership, fidelidade e experiências digitais',
+  },
+  '/services/arcane-rise': {
+    name: 'Arcane Rise',
+    serviceType: 'Sistemas, SaaS, APIs, IA, agentes, automações e integrações',
+  },
+};
+
+const routeLabelByPath = {
+  '/services': 'Serviços',
+  '/services/arcane-digital': 'Arcane Digital',
+  '/services/arcane-growth': 'Arcane Growth',
+  '/services/arcane-rise': 'Arcane Rise',
+  '/projects': 'Cases',
+  '/blog': 'Blog',
+  '/about': 'Sobre',
+  '/contact': 'Contato',
+  '/privacy': 'Política de Privacidade',
+  '/terms': 'Termos de Uso',
+  '/cookies': 'Política de Cookies',
+};
+
+function getBreadcrumbData(path, currentLabel) {
+  if (!path || path === '/') return null;
+
+  const items = [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: `${siteUrl}/` },
+  ];
+
+  if (path.startsWith('/services/')) {
+    items.push({ '@type': 'ListItem', position: 2, name: 'Serviços', item: `${siteUrl}/services` });
+  } else if (path.startsWith('/blog/')) {
+    items.push({ '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` });
+  }
+
+  items.push({
+    '@type': 'ListItem',
+    position: items.length + 1,
+    name: currentLabel,
+    item: `${siteUrl}${path}`,
+  });
+
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items,
+  };
+}
+
+export function getStructuredData(route = { path: '/' }) {
+  if (route.key === 'not-found') return null;
+
+  const path = route.key === 'redirect' ? route.redirectTo : route.path;
+  const metadata = getRouteMetadata(route);
+  const pageUrl = `${siteUrl}${path}`;
+  const currentLabel = routeLabelByPath[path] ?? metadata.title.replace(/ \| (?:Blog Arcane|Arcane)$/, '');
+  const graph = [];
+
+  if (path === '/') {
+    graph.push(organizationData, {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      name: 'Arcane Tecnologia',
+      url: `${siteUrl}/`,
+      inLanguage: 'pt-BR',
+      publisher: { '@id': organizationId },
+    });
+  } else if (serviceDataByPath[path]) {
+    graph.push({
+      '@type': 'Service',
+      '@id': `${pageUrl}#service`,
+      name: serviceDataByPath[path].name,
+      serviceType: serviceDataByPath[path].serviceType,
+      description: metadata.description,
+      url: pageUrl,
+      provider: { '@id': organizationId },
+      inLanguage: 'pt-BR',
+    });
+  } else if (route.key === 'article') {
+    graph.push({
+      '@type': 'Article',
+      '@id': `${pageUrl}#article`,
+      headline: metadata.title.replace(/ \| Blog Arcane$/, ''),
+      description: metadata.description,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      publisher: { '@id': organizationId },
+      inLanguage: 'pt-BR',
+    });
+  } else {
+    const pageType = route.key === 'about' ? 'AboutPage' : route.key === 'contact' ? 'ContactPage' : 'WebPage';
+    graph.push({
+      '@type': pageType,
+      '@id': `${pageUrl}#webpage`,
+      name: metadata.title,
+      description: metadata.description,
+      url: pageUrl,
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      inLanguage: 'pt-BR',
+    });
+  }
+
+  const breadcrumbs = getBreadcrumbData(path, currentLabel);
+  if (breadcrumbs) graph.push(breadcrumbs);
+
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
 function setMetaDescription(description) {
   let element = document.querySelector('meta[name="description"]');
   if (!element) {
@@ -99,6 +232,21 @@ function setCanonical(path) {
 
 function removeCanonical() {
   document.querySelector('link[rel="canonical"]')?.remove();
+}
+
+function setStructuredData(data) {
+  let element = document.querySelector('script[data-arcane-structured-data="true"]');
+  if (!data) {
+    element?.remove();
+    return;
+  }
+  if (!element) {
+    element = document.createElement('script');
+    element.type = 'application/ld+json';
+    element.dataset.arcaneStructuredData = 'true';
+    document.head.appendChild(element);
+  }
+  element.textContent = JSON.stringify(data);
 }
 
 function setMeta(attribute, name, content) {
@@ -124,8 +272,14 @@ export function applyRouteMetadata(route) {
   setMeta('property', 'og:type', route.key === 'article' ? 'article' : 'website');
   setMeta('property', 'og:image', `${siteUrl}${socialImage}`);
   setMeta('property', 'og:image:alt', 'Arcane Tecnologia');
+  setMeta('property', 'og:image:type', 'image/png');
+  setMeta('property', 'og:image:width', '1200');
+  setMeta('property', 'og:image:height', '360');
   setMeta('name', 'twitter:card', 'summary');
   setMeta('name', 'twitter:title', metadata.title);
   setMeta('name', 'twitter:description', metadata.description);
+  setMeta('name', 'twitter:image', `${siteUrl}${socialImage}`);
+  setMeta('name', 'twitter:image:alt', 'Arcane Tecnologia');
   setMeta('name', 'robots', route.key === 'not-found' ? 'noindex,follow' : 'index,follow');
+  setStructuredData(getStructuredData(route));
 }

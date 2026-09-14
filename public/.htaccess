@@ -1,13 +1,48 @@
 RewriteEngine On
 RewriteBase /
 
-# Preserve the old service URL while consolidating the engineering division.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Vite fingerprints these files, so they can be cached safely for a year.
+  <FilesMatch "\.(?:css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# Consolidate both hostnames on the canonical HTTPS origin.
+RewriteCond %{HTTP_HOST} ^www\.arcanetecnologia\.com\.br$ [NC]
+RewriteRule ^ https://arcanetecnologia.com.br%{REQUEST_URI} [R=301,L,NE]
+
+# Preserve legacy URLs while consolidating the current architecture.
 RewriteRule ^services/arcane-labs/?$ /services/arcane-rise [R=301,L]
+RewriteRule ^solicitar-orcamento/?$ /contact [R=301,L]
+RewriteRule ^services/sites-premium/?$ /services/arcane-digital [R=301,L]
+
+# Serve the route-specific HTML head generated after the Vite build.
+RewriteRule ^services/?$ services/index.html [L]
+RewriteRule ^services/arcane-digital/?$ services/arcane-digital/index.html [L]
+RewriteRule ^services/arcane-growth/?$ services/arcane-growth/index.html [L]
+RewriteRule ^services/arcane-rise/?$ services/arcane-rise/index.html [L]
+RewriteRule ^projects/?$ projects/index.html [L]
+RewriteRule ^blog/?$ blog/index.html [L]
+RewriteRule ^blog/a-atencao-certa-comeca-antes-do-clique/?$ blog/a-atencao-certa-comeca-antes-do-clique/index.html [L]
+RewriteRule ^blog/quando-uma-ideia-pede-um-produto-proprio/?$ blog/quando-uma-ideia-pede-um-produto-proprio/index.html [L]
+RewriteRule ^blog/automacao-boa-devolve-tempo-para-o-negocio/?$ blog/automacao-boa-devolve-tempo-para-o-negocio/index.html [L]
+RewriteRule ^about/?$ about/index.html [L]
+RewriteRule ^contact/?$ contact/index.html [L]
+RewriteRule ^privacy/?$ privacy/index.html [L]
+RewriteRule ^terms/?$ terms/index.html [L]
+RewriteRule ^cookies/?$ cookies/index.html [L]
 
 # Serve existing files (including Vite assets) directly.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Let the React SPA resolve approved client-side routes on direct visits.
+# Let the React SPA resolve approved client-side routes if static route pages are absent.
 RewriteRule ^(?:services/?|services/arcane-digital/?|services/arcane-growth/?|services/arcane-rise/?|projects/?|blog/?|blog/a-atencao-certa-comeca-antes-do-clique/?|blog/quando-uma-ideia-pede-um-produto-proprio/?|blog/automacao-boa-devolve-tempo-para-o-negocio/?|about/?|contact/?|privacy/?|terms/?|cookies/?)$ index.html [L]

@@ -1,4 +1,5 @@
 import { ArrowIcon } from './Icons.jsx';
+import { LazyVideo } from './LazyVideo.jsx';
 
 export function ServiceList({ services, onNavigate }) {
   return (
@@ -6,9 +7,7 @@ export function ServiceList({ services, onNavigate }) {
       {services.map((service) => (
         <article className={`service-row${service.video ? ' service-row-video' : ''}`} key={service.slug}>
           {service.video ? (
-            <video className="service-background" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-              <source src={service.video} type="video/mp4" />
-            </video>
+            <LazyVideo className="service-background" src={service.video} />
           ) : null}
           <div className="service-index">
             <span className="service-number">{service.number}</span>

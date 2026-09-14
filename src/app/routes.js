@@ -18,6 +18,8 @@ export const routeTable = [
 
 export const legacyRedirects = {
   '/services/arcane-labs': '/services/arcane-rise',
+  '/solicitar-orcamento': '/contact',
+  '/services/sites-premium': '/services/arcane-digital',
 };
 
 export function normalizePath(pathname = '/') {

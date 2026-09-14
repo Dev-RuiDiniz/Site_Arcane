@@ -86,6 +86,18 @@ Eventos preparados:
 
 Validação recomendada: abrir o site com o Tag Assistant ou as ferramentas de desenvolvedor, confirmar os eventos no `dataLayer` e verificar se o WhatsApp recebe nome, e-mail, empresa e contexto do projeto.
 
+## SEO e descoberta orgânica
+
+O build gera um documento HTML com metadados específicos para cada rota publicada, além do fallback SPA. Isso mantém title, description, canonical, Open Graph, Twitter Card e JSON-LD disponíveis antes da execução do React:
+
+- `/robots.txt` permite rastreamento e aponta para o sitemap oficial.
+- `/sitemap.xml` lista somente as rotas públicas atuais, com URLs canônicas em HTTPS.
+- A home publica `Organization` e `WebSite`; serviços publicam `Service`; artigos publicam `Article` e breadcrumbs.
+- O domínio `www` é consolidado no domínio canônico sem `www` por redirect permanente.
+- URLs antigas conhecidas redirecionam para `/contact` ou para a divisão atual correspondente.
+
+Depois da publicação, verifique o domínio como propriedade DNS no Google Search Console e envie `https://arcanetecnologia.com.br/sitemap.xml`. O Search Console e o Google Ads dependem de credenciais da conta; os IDs opcionais ficam em `.env` e não são inventados no código.
+
 ## Blog inicial
 
 O índice `/blog` apresenta três artigos editoriais completos, com leitura estimada, seções práticas, pontos de aplicação, referências externas e CTA comercial contextualizado para o WhatsApp:

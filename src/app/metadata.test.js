@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getRouteMetadata } from './metadata.js';
+import { getRouteMetadata, getStructuredData } from './metadata.js';
 
 describe('route metadata', () => {
   it('provides specific metadata for the three service divisions', () => {
@@ -27,6 +27,23 @@ describe('route metadata', () => {
     expect(getRouteMetadata({ path: '/unknown' })).toEqual({
       title: 'Arcane Tecnologia — Estratégia e tecnologia para negócios',
       description: 'Estratégia e tecnologia para transformar ideias em negócios — presença digital, experiências e tecnologia para crescer com estrutura.',
+    });
+  });
+
+  it('provides structured data for the home, services and articles', () => {
+    const homeGraph = getStructuredData({ path: '/', key: 'home' })['@graph'];
+    expect(homeGraph.map((item) => item['@type'])).toEqual(['Organization', 'WebSite']);
+
+    const serviceGraph = getStructuredData({ path: '/services/arcane-rise', key: 'service' })['@graph'];
+    expect(serviceGraph.find((item) => item['@type'] === 'Service')).toMatchObject({
+      name: 'Arcane Rise',
+      url: 'https://arcanetecnologia.com.br/services/arcane-rise',
+    });
+    expect(serviceGraph.some((item) => item['@type'] === 'BreadcrumbList')).toBe(true);
+
+    const articleGraph = getStructuredData({ path: '/blog/automacao-boa-devolve-tempo-para-o-negocio', key: 'article' })['@graph'];
+    expect(articleGraph.find((item) => item['@type'] === 'Article')).toMatchObject({
+      headline: 'Automação boa devolve tempo para o negócio',
     });
   });
 });

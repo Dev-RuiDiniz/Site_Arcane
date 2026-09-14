@@ -12,6 +12,16 @@ describe('Arcane site routes', () => {
       key: 'redirect',
       redirectTo: '/services/arcane-rise',
     });
+    expect(getRoute('/solicitar-orcamento')).toEqual({
+      path: '/solicitar-orcamento',
+      key: 'redirect',
+      redirectTo: '/contact',
+    });
+    expect(getRoute('/services/sites-premium')).toEqual({
+      path: '/services/sites-premium',
+      key: 'redirect',
+      redirectTo: '/services/arcane-digital',
+    });
   });
 
   it('exposes every approved route with a page key', () => {
