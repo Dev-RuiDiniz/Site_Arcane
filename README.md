@@ -2,17 +2,17 @@
 
 Primeira versão local do novo site institucional da Arcane Tecnologia.
 
-Posicionamento atual: **Atraia. Construa. Escale.** — Arcane Digital, Arcane Labs e Arcane Growth, com “Agendar uma conversa” como CTA principal.
+Posicionamento atual: **Estratégia e tecnologia para transformar ideias em negócios.** A arquitetura **Atraia. Conecte. Escale.** organiza Arcane Digital, Arcane Growth e Arcane Rise, com “Iniciar um projeto” como CTA principal.
 
 ## Visão comercial
 
-A Arcane ajuda empresas a transformar atenção, ideias e processos em crescimento digital com mais clareza e capacidade de execução.
+A Arcane combina estratégia e tecnologia para transformar ideias em negócios. Ajudamos empresas a entrar no mercado digital e negócios que já estão nele a atrair mais, criar relacionamento e escalar com estrutura.
 
-Não somos uma software house genérica nem uma agência isolada de comunicação. Atuamos como parceira de estratégia e tecnologia para conectar presença digital, produto próprio e automação em uma evolução contínua:
+Não somos uma agência tradicional nem uma software house genérica. Atuamos como parceira de estratégia, criatividade e tecnologia para conectar presença, comunidade e operação em uma evolução contínua:
 
-- **Arcane Digital — Atraia.** Landing pages, campanhas, identidade para lançamentos, materiais comerciais, media kits e conteúdo para redes sociais. Criamos a presença digital que transforma atenção em oportunidade.
-- **Arcane Labs — Construa.** Sistemas web, plataformas SaaS, aplicativos e produtos digitais sob medida. Tiramos ideias e operações do papel com experiência bem desenhada e tecnologia preparada para crescer.
-- **Arcane Growth — Escale.** IA, automações e integrações entre CRM, WhatsApp, APIs, dados e sistemas internos. Eliminamos trabalho manual e liberamos o time para decisões melhores.
+- **Arcane Digital — Atraia.** Branding, sites, landing pages, conteúdo, campanhas, SEO e materiais comerciais para fazer a empresa ser encontrada, percebida e escolhida.
+- **Arcane Growth — Conecte.** Aplicativos, comunidades, membership, fidelidade, portais e experiências recorrentes para transformar audiência em relacionamento.
+- **Arcane Rise — Escale.** Sistemas, SaaS, APIs, IA, agentes, automações e integrações para transformar processos em tecnologia.
 
 ### Para quem é
 
@@ -50,8 +50,8 @@ Abra `http://localhost:4173/`.
 - `/`
 - `/services`
 - `/services/arcane-digital`
-- `/services/arcane-labs`
 - `/services/arcane-growth`
+- `/services/arcane-rise`
 - `/projects`
 - `/blog`
 - `/blog/a-atencao-certa-comeca-antes-do-clique`
@@ -91,8 +91,8 @@ Validação recomendada: abrir o site com o Tag Assistant ou as ferramentas de d
 O índice `/blog` apresenta três artigos editoriais completos, com leitura estimada, seções práticas, pontos de aplicação, referências externas e CTA comercial contextualizado para o WhatsApp:
 
 - Digital — “A atenção certa começa antes do clique.”
-- Labs — “Quando uma ideia pede um produto próprio.”
-- Growth — “Automação boa devolve tempo para o negócio.”
+- Rise — “Quando uma ideia pede um produto próprio.”
+- Rise — “Automação boa devolve tempo para o negócio.”
 
 ## Páginas legais
 
@@ -107,5 +107,5 @@ As páginas legais foram estruturadas com data de atualização, escopo, seçõe
 Além da visão geral em `/services`, cada frente possui uma página própria com uma narrativa comercial completa, escopo de atuação, forma de entrega, resultados esperados e CTA contextualizado para o WhatsApp:
 
 - **Arcane Digital** — [Landing Pages, Campanhas, Conteúdo e Redes Sociais](http://localhost:4173/services/arcane-digital)
-- **Arcane Labs** — [Sistemas, Aplicativos e Produtos Digitais](http://localhost:4173/services/arcane-labs)
-- **Arcane Growth** — [IA, Automações e Integrações](http://localhost:4173/services/arcane-growth)
+- **Arcane Growth** — [Apps, Comunidades e Experiências](http://localhost:4173/services/arcane-growth)
+- **Arcane Rise** — [Sistemas, IA, Automações e Integrações](http://localhost:4173/services/arcane-rise)

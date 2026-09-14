@@ -1,6 +1,7 @@
 {
   "name": "Arcane Tecnologia",
   "short_name": "Arcane",
+  "description": "Estratégia e tecnologia para transformar ideias em negócios.",
   "lang": "pt-BR",
   "start_url": "/",
   "display": "browser",

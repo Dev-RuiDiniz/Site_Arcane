@@ -41,6 +41,12 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (route.key !== 'redirect') return;
+    window.history.replaceState({}, '', route.redirectTo);
+    setRoute(getRoute(route.redirectTo));
+  }, [route]);
+
+  useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
     const handleKeyDown = (event) => { if (event.key === 'Escape') setMenuOpen(false); };
     window.addEventListener('keydown', handleKeyDown);
@@ -48,6 +54,7 @@ function App() {
   }, [menuOpen]);
 
   useEffect(() => {
+    if (route.key === 'redirect') return;
     applyRouteMetadata(route);
     initializeAnalytics();
     trackPageView(route.path);
@@ -96,6 +103,8 @@ function App() {
   }
   if (['privacy', 'terms', 'cookies'].includes(route.key)) page = <LegalPage kind={route.key} {...pageProps} />;
   if (route.key === 'not-found') page = <NotFoundPage {...pageProps} />;
+
+  if (route.key === 'redirect') return null;
 
   return <><Header currentPath={route.path} isVisible={route.key !== 'home' || headerVisible || menuOpen} menuOpen={menuOpen} onMenuToggle={() => setMenuOpen((open) => !open)} onNavigate={handleNavigate} /><MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} onNavigate={handleNavigate} />{page}<SiteFooter onNavigate={handleNavigate} /><WhatsAppFloat /></>;
 }

@@ -2,12 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { getRouteMetadata } from './metadata.js';
 
 describe('route metadata', () => {
-  it('provides specific metadata for paid-traffic service pages', () => {
-    expect(getRouteMetadata({ path: '/services/arcane-labs' })).toEqual({
-      title: 'Arcane Labs | Sistemas, aplicativos e produtos digitais',
-      description: 'Desenvolvimento de sistemas web, aplicativos, plataformas SaaS e produtos digitais sob medida para empresas que precisam construir tecnologia própria.',
+  it('provides specific metadata for the three service divisions', () => {
+    expect(getRouteMetadata({ path: '/services/arcane-rise' })).toEqual({
+      title: 'Arcane Rise | Tecnologia para operações prontas para escalar',
+      description: 'Sistemas, SaaS, APIs, IA, agentes, automações e integrações para transformar processos em tecnologia.',
     });
-    expect(getRouteMetadata({ path: '/services/arcane-growth' }).title).toBe('Arcane Growth | IA, automações e integrações');
+    expect(getRouteMetadata({ path: '/services/arcane-growth' }).title).toBe('Arcane Growth | Transforme audiência em comunidade');
+    expect(getRouteMetadata({ path: '/services/arcane-labs', key: 'redirect', redirectTo: '/services/arcane-rise' }).title).toBe('Arcane Rise | Tecnologia para operações prontas para escalar');
   });
 
   it('provides unique metadata for editorial detail pages', () => {
@@ -23,6 +24,9 @@ describe('route metadata', () => {
   });
 
   it('falls back safely for unlisted route objects', () => {
-    expect(getRouteMetadata({ path: '/unknown' }).title).toBe('Arcane Tecnologia — Negócios digitais que funcionam');
+    expect(getRouteMetadata({ path: '/unknown' })).toEqual({
+      title: 'Arcane Tecnologia — Estratégia e tecnologia para negócios',
+      description: 'Estratégia e tecnologia para transformar ideias em negócios — presença digital, experiências e tecnologia para crescer com estrutura.',
+    });
   });
 });

@@ -39,11 +39,11 @@ Data: 19/08/2026
 | Ponto | Referência observada | Implementação | Resultado |
 |---|---|---|---|
 | Ritmo visual | Bandas claras/escuras, linhas finas, muito espaço negativo | Bandas `band-paper`, `band-dark` e `band-blue` com divisores compartilhados | Mantido |
-| Tipografia | Sans-serif editorial, títulos grandes, labels em caixa alta | Plus Jakarta Sans, escala fluida e labels com tracking | Mantido |
+| Tipografia | Sans-serif editorial, títulos grandes, labels em caixa alta | Poppins para títulos, Manrope para leitura/interface e IBM Plex Mono para labels e metadados | Atualizado |
 | Navegação | Cabeçalho claro e menu expandido em fundo preto | Header fixo, menu fullscreen, Escape e bloqueio de scroll | Mantido |
-| CTA | Botões arredondados com seta e ação comercial evidente | “Agendar uma conversa” e CTAs de serviço apontam para o WhatsApp; “Conhecer nossos projetos” aponta para `/projects` | Atualizado |
+| CTA | Botões arredondados com seta e ação comercial evidente | “Iniciar um projeto” e CTAs contextuais apontam para o WhatsApp; “Ver projetos” aponta para `/projects` | Atualizado |
 | WhatsApp comercial | — | CTAs comerciais, telefone, formulário válido e botão flutuante encaminham para `wa.me/5512991332258` | Atualizado |
-| Linha editorial | Entrada comercial, humana e orientada a resultado | “Atraia. Construa. Escale.” organiza Digital, Labs e Growth | Mantido |
+| Linha editorial | Entrada comercial, humana e orientada a resultado | “Atraia. Conecte. Escale.” organiza Digital, Growth e Rise | Atualizado |
 | Responsividade | Conteúdo empilhado e menu reduzido no mobile | Layout single-column em `max-width: 760px`, sem overflow horizontal | Mantido |
 | Identidade | A referência usa marca e assets próprios | Logo horizontal oficial da Arcane aplicado no header e no rodapé; nenhum asset da Limbrand foi reutilizado | Atualizado |
 | Hero | A referência usa vídeo/fotografia | `video_fundo.mp4` aplicado no hero com autoplay silencioso, loop e `playsInline` | Atualizado |

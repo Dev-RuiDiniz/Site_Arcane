@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
   --arcane-ink: #090a0b;
@@ -10,7 +10,9 @@
   --arcane-muted: #9aa1a5;
   --arcane-line-dark: rgba(255, 255, 255, 0.18);
   --arcane-line-light: rgba(9, 10, 11, 0.18);
-  --font-sans: 'Plus Jakarta Sans', Arial, sans-serif;
+  --font-display: 'Poppins', Arial, sans-serif;
+  --font-sans: 'Manrope', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
   --shell: min(1320px, calc(100vw - 112px));
   --space-1: 8px;
   --space-2: 16px;

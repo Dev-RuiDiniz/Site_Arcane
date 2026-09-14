@@ -17,6 +17,12 @@ export function SiteFooter({ onNavigate }) {
             {siteContent.navigation.map((item) => <a key={item.href} href={item.href} onClick={(event) => onNavigate(event, item.href)}>{item.label}</a>)}
           </div>
         </div>
+        <div className="footer-column">
+          <span className="eyebrow">DIVISÕES</span>
+          <div className="footer-links">
+            {siteContent.services.map((service) => <a key={service.slug} href={service.detailHref} onClick={(event) => onNavigate(event, service.detailHref)}>{service.title}</a>)}
+          </div>
+        </div>
         <div className="footer-column footer-contact">
           <span className="eyebrow">CONTATO</span>
           <a href={`mailto:${siteContent.contact.email}`}>{siteContent.contact.email}</a>
@@ -25,7 +31,7 @@ export function SiteFooter({ onNavigate }) {
         </div>
       </div>
       <div className="footer-legal">
-        <span>Arcane / Atraia. Construa. Escale.</span>
+        <span>Arcane / {siteContent.brandStatement}</span>
         <div>
           {['privacy', 'terms', 'cookies'].map((key) => <a key={key} href={`/${key}`} onClick={(event) => onNavigate(event, `/${key}`)}>{siteContent.legal[key].title}</a>)}
         </div>

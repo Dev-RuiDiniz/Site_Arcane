@@ -7,6 +7,11 @@ describe('Arcane site routes', () => {
     expect(normalizePath('/services/')).toBe('/services');
     expect(normalizePath('')).toBe('/');
     expect(getRoute('/not-found')).toEqual({ path: '/not-found', key: 'not-found' });
+    expect(getRoute('/services/arcane-labs')).toEqual({
+      path: '/services/arcane-labs',
+      key: 'redirect',
+      redirectTo: '/services/arcane-rise',
+    });
   });
 
   it('exposes every approved route with a page key', () => {
@@ -16,9 +21,9 @@ describe('Arcane site routes', () => {
       '/',
       '/services',
       '/projects',
-      '/blog',
       '/about',
       '/contact',
+      '/blog',
     ]);
   });
 
@@ -30,22 +35,21 @@ describe('Arcane site routes', () => {
   });
 
   it('exposes the approved commercial positioning and service architecture', () => {
-    expect(siteContent.primaryCta.label).toBe('Agendar uma conversa');
-    expect(siteContent.secondaryCta).toBeUndefined();
+    expect(siteContent.primaryCta.label).toBe('Iniciar um projeto');
     expect(siteContent.hero.title).toBe('Estratégia e tecnologia para transformar ideias em negócios.');
-    expect(siteContent.hero.text).toBe('Criamos experiências digitais, desenvolvemos produtos e conectamos processos para empresas que querem vender mais, operar melhor e construir tecnologia própria.');
-    expect(siteContent.hero.proof).toBeUndefined();
-    expect(siteContent.services.map((service) => service.title)).toEqual(['Arcane Digital', 'Arcane Labs', 'Arcane Growth']);
+    expect(siteContent.hero.text).toBe('Criamos presenças digitais, desenvolvemos experiências e conectamos tecnologia para empresas que querem atrair mais, criar relacionamento e escalar com estrutura.');
+    expect(siteContent.services.map((service) => service.title)).toEqual(['Arcane Digital', 'Arcane Growth', 'Arcane Rise']);
+    expect(siteContent.services.map((service) => service.concept)).toEqual(['ATRAIA', 'CONECTE', 'ESCALE']);
     siteContent.services.forEach((service) => {
       expect(service.subtitle).toBeTruthy();
       expect(service.cta).toBeTruthy();
       expect(service.href).toContain('https://wa.me/5512991332258');
     });
     expect(siteContent.contactPage).toEqual({
-      title: 'Agende uma conversa com a Arcane',
-      text: 'Conte brevemente o que você precisa. Nossa equipe analisa o contexto antes da reunião para que a conversa já comece de forma objetiva.',
+      title: 'Inicie um projeto com a Arcane',
+      text: 'Conte o contexto da sua empresa. Nossa equipe analisa o desafio antes da conversa para identificar o melhor caminho entre presença, comunidade e tecnologia.',
     });
-    expect(siteContent.articles.map((article) => article.category)).toEqual(['Digital', 'Labs', 'Growth']);
+    expect(siteContent.articles.map((article) => article.category)).toEqual(['Digital', 'Rise', 'Rise']);
   });
 
   it('uses the supplied Arcane brand assets in the hero and site chrome', () => {
@@ -73,8 +77,8 @@ describe('Arcane site routes', () => {
   it('exposes commercial detail pages for the three service fronts', () => {
     expect(siteContent.services.map((service) => service.detailHref)).toEqual([
       '/services/arcane-digital',
-      '/services/arcane-labs',
       '/services/arcane-growth',
+      '/services/arcane-rise',
     ]);
     siteContent.services.forEach((service) => {
       expect(getRoute(service.detailHref)).toMatchObject({ key: 'service', serviceSlug: service.slug });

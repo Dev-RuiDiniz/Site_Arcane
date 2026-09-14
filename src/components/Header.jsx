@@ -12,7 +12,7 @@ export function Header({ currentPath, isVisible = false, menuOpen, onMenuToggle,
         <img className="brand-logo" src={siteContent.brandAssets.logo} alt="Arcane Tecnologia" />
       </a>
       <nav className="desktop-nav" aria-label="Navegação principal">
-        {siteContent.navigation.slice(0, 5).map((item) => (
+        {siteContent.primaryNavigation.map((item) => (
           <a key={item.href} className={currentPath === item.href ? 'is-active' : ''} href={item.href} onClick={(event) => onNavigate(event, item.href)}>
             {item.label}
           </a>

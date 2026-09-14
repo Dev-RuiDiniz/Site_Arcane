@@ -1,41 +1,44 @@
 const defaultMetadata = {
-  title: 'Arcane Tecnologia — Negócios digitais que funcionam',
-  description: 'Estratégia e tecnologia para transformar ideias em negócios digitais que funcionam: experiências digitais, produtos próprios e automações para crescer melhor.',
+  title: 'Arcane Tecnologia — Estratégia e tecnologia para negócios',
+  description: 'Estratégia e tecnologia para transformar ideias em negócios — presença digital, experiências e tecnologia para crescer com estrutura.',
 };
+
+const siteUrl = 'https://arcanetecnologia.com.br';
+const socialImage = '/assets/arcane-logo-horizontal.png';
 
 const metadataByPath = {
   '/': defaultMetadata,
   '/services': {
-    title: 'Serviços digitais, software e automação | Arcane Tecnologia',
-    description: 'Conheça as frentes Arcane Digital, Arcane Labs e Arcane Growth para fortalecer sua presença digital, construir produtos próprios e automatizar operações.',
+    title: 'Serviços digitais, comunidades e tecnologia | Arcane',
+    description: 'Conheça Arcane Digital, Arcane Growth e Arcane Rise: presença digital, experiências de comunidade, sistemas, IA e automação.',
   },
   '/services/arcane-digital': {
-    title: 'Arcane Digital | Landing pages, campanhas e conteúdo',
-    description: 'Landing pages, campanhas, conteúdo e materiais comerciais para transformar atenção qualificada em oportunidades de negócio.',
-  },
-  '/services/arcane-labs': {
-    title: 'Arcane Labs | Sistemas, aplicativos e produtos digitais',
-    description: 'Desenvolvimento de sistemas web, aplicativos, plataformas SaaS e produtos digitais sob medida para empresas que precisam construir tecnologia própria.',
+    title: 'Arcane Digital | Presença digital que posiciona e atrai',
+    description: 'Branding, sites, landing pages, conteúdo, campanhas, SEO e experiências digitais para sua empresa ser percebida e escolhida.',
   },
   '/services/arcane-growth': {
-    title: 'Arcane Growth | IA, automações e integrações',
-    description: 'Automação de processos, integrações entre CRM, WhatsApp e APIs e aplicação de IA para reduzir retrabalho e dar escala à operação.',
+    title: 'Arcane Growth | Transforme audiência em comunidade',
+    description: 'Aplicativos, comunidades, membership, fidelidade e experiências digitais recorrentes para aproximar marcas e pessoas.',
+  },
+  '/services/arcane-rise': {
+    title: 'Arcane Rise | Tecnologia para operações prontas para escalar',
+    description: 'Sistemas, SaaS, APIs, IA, agentes, automações e integrações para transformar processos em tecnologia.',
   },
   '/projects': {
     title: 'Cases e projetos digitais | Arcane Tecnologia',
     description: 'Conheça frentes de projeto em que arquitetura, operação e contexto de negócio caminham juntos.',
   },
   '/blog': {
-    title: 'Blog | Estratégia, produto e automação | Arcane',
-    description: 'Perspectivas da Arcane sobre presença digital, produtos próprios, automação e escolhas para empresas crescerem melhor.',
+    title: 'Blog | Presença, comunidade e tecnologia | Arcane',
+    description: 'Perspectivas da Arcane sobre presença digital, experiências, comunidades, produtos, automação e tecnologia aplicada ao negócio.',
   },
   '/about': {
-    title: 'Sobre a Arcane | Engenharia orientada por contexto',
-    description: 'A Arcane conecta tecnologia e operação para substituir improvisos por uma base mais sólida, rastreável e preparada para evolução.',
+    title: 'Sobre a Arcane | Presença, comunidade e tecnologia',
+    description: 'A Arcane conecta estratégia, criatividade e tecnologia para construir empresas mais fortes no ambiente digital.',
   },
   '/contact': {
-    title: 'Agende uma conversa | Arcane Tecnologia',
-    description: 'Conte o contexto do seu projeto, produto ou operação e agende uma conversa objetiva com a equipe Arcane.',
+    title: 'Inicie um projeto | Arcane Tecnologia',
+    description: 'Conte o contexto da sua empresa e encontre o melhor caminho entre presença, comunidade e tecnologia com a Arcane.',
   },
   '/privacy': {
     title: 'Política de Privacidade | Arcane Tecnologia',
@@ -70,6 +73,7 @@ const notFoundMetadata = {
 
 export function getRouteMetadata(route = { path: '/' }) {
   if (route.key === 'not-found') return notFoundMetadata;
+  if (route.key === 'redirect') return metadataByPath[route.redirectTo] ?? defaultMetadata;
   return metadataByPath[route.path] ?? defaultMetadata;
 }
 
@@ -90,7 +94,7 @@ function setCanonical(path) {
     element.rel = 'canonical';
     document.head.appendChild(element);
   }
-  element.href = `${window.location.origin}${path}`;
+  element.href = `${siteUrl}${path}`;
 }
 
 function removeCanonical() {
@@ -116,8 +120,10 @@ export function applyRouteMetadata(route) {
   else setCanonical(route.path);
   setMeta('property', 'og:title', metadata.title);
   setMeta('property', 'og:description', metadata.description);
-  setMeta('property', 'og:url', `${window.location.origin}${window.location.pathname}`);
+  setMeta('property', 'og:url', `${siteUrl}${route.path}`);
   setMeta('property', 'og:type', route.key === 'article' ? 'article' : 'website');
+  setMeta('property', 'og:image', `${siteUrl}${socialImage}`);
+  setMeta('property', 'og:image:alt', 'Arcane Tecnologia');
   setMeta('name', 'twitter:card', 'summary');
   setMeta('name', 'twitter:title', metadata.title);
   setMeta('name', 'twitter:description', metadata.description);

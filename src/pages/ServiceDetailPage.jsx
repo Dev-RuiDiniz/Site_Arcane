@@ -10,9 +10,10 @@ export function ServiceDetailPage({ service, onNavigate }) {
         <a className="article-back-link" href="/services" onClick={(event) => onNavigate(event, '/services')}>
           <ArrowIcon direction="left" /> Voltar para serviços
         </a>
-        <h1>{service.title}</h1>
+        <div className="service-detail-label"><span>{service.title}</span><span>{service.concept}</span></div>
+        <h1>{detail.heroTitle ?? service.title}</h1>
         <p className="service-detail-subtitle">{service.subtitle}</p>
-        <p>{detail.lead}</p>
+        <p>{detail.heroText ?? detail.lead}</p>
         <div className="hero-actions service-detail-actions">
           <a className="button button-blue" href={detail.cta.href} target="_blank" rel="noreferrer">{detail.cta.label} <ArrowIcon /></a>
           <a className="button button-dark" href="/services" onClick={(event) => onNavigate(event, '/services')}>Conhecer outras frentes <ArrowIcon /></a>
@@ -44,7 +45,7 @@ export function ServiceDetailPage({ service, onNavigate }) {
 
           <aside className="article-aside">
             <div className="article-aside-card">
-              <span className="eyebrow eyebrow-blue">ARCANE / {service.title.replace('Arcane ', '').toUpperCase()}</span>
+              <span className="eyebrow eyebrow-blue">ARCANE / {service.concept}</span>
               <h2>Pronto para dar o próximo passo?</h2>
               <p>Conte o que você quer construir, melhorar ou automatizar. A Arcane ajuda a transformar o contexto em uma solução clara e possível.</p>
               <a className="button button-blue" href={detail.cta.href} target="_blank" rel="noreferrer">{detail.cta.label} <ArrowIcon /></a>

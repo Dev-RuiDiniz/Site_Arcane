@@ -20,16 +20,17 @@ button { cursor: pointer; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--arcane-blue); outline-offset: 4px; }
 
 h1, h2, h3, p { margin: 0; }
-h1, h2, h3 { font-weight: 500; letter-spacing: -0.06em; line-height: .95; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.06em; line-height: .95; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .band-dark { background: var(--arcane-ink); color: var(--arcane-paper); }
 .band-paper { background: var(--arcane-paper); color: var(--arcane-ink); }
 .band-blue { background: var(--arcane-blue); color: var(--arcane-ink); }
-.eyebrow { display: inline-flex; align-items: center; color: currentColor; font-size: 11px; font-weight: 700; letter-spacing: .16em; line-height: 1.1; text-transform: uppercase; }
+.eyebrow { display: inline-flex; align-items: center; color: currentColor; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .14em; line-height: 1.1; text-transform: uppercase; }
 .eyebrow-blue { color: var(--arcane-blue); }
+.hero-eyebrow { font-family: var(--font-display); font-weight: 600; letter-spacing: .1em; }
 .kicker-line { display: inline-block; width: 32px; height: 2px; margin-right: 20px; background: var(--arcane-blue); }
-.section-kicker { display: flex; align-items: center; color: var(--arcane-blue); font-size: 11px; font-weight: 700; letter-spacing: .16em; line-height: 1; text-transform: uppercase; }
+.section-kicker { display: flex; align-items: center; color: var(--arcane-blue); font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .14em; line-height: 1; text-transform: uppercase; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-height: 54px; padding: 0 22px; border: 1px solid transparent; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .02em; transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease); }
 .button:hover { transform: translateY(-2px); }
 .button-blue { background: var(--arcane-blue); color: var(--arcane-ink); }
@@ -40,6 +41,20 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -0.06em; line-height: .95; }
 .text-link { display: inline-flex; align-items: center; gap: 12px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 12px; font-weight: 700; }
 .text-link .icon { width: 18px; height: 18px; }
 .icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; }
+
+.menu-number,
+.service-number,
+.service-concept,
+.service-tag,
+.project-card-top,
+.article-meta,
+.project-result,
+.article-detail-meta,
+.service-detail-label,
+.hero-proof span,
+.journey-step span,
+.about-division-top,
+.footer-legal { font-family: var(--font-mono); }
 
 @media (max-width: 760px) {
   :root { --shell: calc(100vw - 32px); --space-5: 48px; --space-6: 72px; --space-7: 96px; }

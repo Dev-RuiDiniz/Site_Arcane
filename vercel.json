@@ -1,10 +1,13 @@
 {
+  "redirects": [
+    { "source": "/services/arcane-labs", "destination": "/services/arcane-rise", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/services", "destination": "/index.html" },
     { "source": "/services/arcane-digital", "destination": "/index.html" },
-    { "source": "/services/arcane-labs", "destination": "/index.html" },
     { "source": "/services/arcane-growth", "destination": "/index.html" },
+    { "source": "/services/arcane-rise", "destination": "/index.html" },
     { "source": "/projects", "destination": "/index.html" },
     { "source": "/blog", "destination": "/index.html" },
     { "source": "/blog/a-atencao-certa-comeca-antes-do-clique", "destination": "/index.html" },

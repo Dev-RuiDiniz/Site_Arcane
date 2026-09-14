@@ -1,8 +1,8 @@
-# Arcane Tecnologia — Design inicial
+# Arcane Tecnologia — Direção institucional
 
 ## Objetivo
 
-Criar a primeira versão navegável do novo site institucional da Arcane Tecnologia, posicionando a empresa como parceira de engenharia para operações críticas que precisam de arquitetura autoral, clareza operacional e evolução previsível.
+Manter o site institucional navegável da Arcane Tecnologia e posicionar a empresa como parceira de presença, comunidade e tecnologia para negócios digitais.
 
 ## Escopo aprovado
 
@@ -10,6 +10,9 @@ Rotas principais:
 
 - `/` — Home
 - `/services` — Serviços
+- `/services/arcane-digital` — Arcane Digital
+- `/services/arcane-growth` — Arcane Growth
+- `/services/arcane-rise` — Arcane Rise
 - `/projects` — Cases / Portfólio
 - `/blog` — Blog
 - `/about` — Sobre
@@ -18,19 +21,19 @@ Rotas principais:
 - `/terms` — Termos de Uso
 - `/cookies` — Política de Cookies
 
-Não criar rotas individuais para serviços ou cases. O CTA comercial “Agendar reunião” aponta sempre para `/contact`.
+As três divisões possuem páginas próprias. O CTA comercial principal abre uma conversa contextualizada no WhatsApp e a rota `/contact` mantém o formulário de entrada.
 
 ## Direção visual
 
 - Referência estrutural: linguagem editorial e premium observada em `REFERENCIA-LIMBRAND.md`, sem copiar texto, marca ou ativos.
 - Paleta: preto profundo, off-white e azul elétrico.
-- Tipografia: sans-serif contemporânea com títulos grandes, labels em caixa alta e tracking controlado.
+- Tipografia: Poppins para títulos editoriais e assinatura da marca, Manrope para leitura e interface, e IBM Plex Mono para labels, números e metadados técnicos.
 - Ritmo: bandas alternadas claras/escuras, linhas finas, números de processo e bastante espaço negativo.
-- Arcane: tom mais técnico e operacional, usando palavras de engenharia, rastreabilidade, governança, automação e escala.
+- Arcane: tom editorial, estratégico e tecnológico, usando presença, comunidade, experiência, engenharia, automação e escala.
 
 ## Componentes globais
 
-- `Header`: wordmark textual Arcane, navegação desktop, botão de menu mobile/fullscreen e CTA “Agendar reunião”.
+- `Header`: wordmark oficial Arcane, navegação desktop, botão de menu mobile/fullscreen e CTA “Iniciar um projeto”.
 - `MenuOverlay`: navegação numerada, fechamento por botão, Escape e clique de rota.
 - `SectionIntro`: label azul, linha guia e título editorial.
 - `PrimaryCta` / `TextLink`: CTAs consistentes.
@@ -39,11 +42,11 @@ Não criar rotas individuais para serviços ou cases. O CTA comercial “Agendar
 
 ## Conteúdo de primeira versão
 
-Hero: “Tecnologia que transforma complexidade operacional em vantagem competitiva.”
+Hero: “Estratégia e tecnologia para transformar ideias em negócios.”
 
-Mensagem de apoio: “Arquitetura autoral, automação com critério e execução com contexto de negócio.”
+Mensagem de apoio: “Criamos presenças digitais, desenvolvemos experiências e conectamos tecnologia para empresas que querem atrair mais, criar relacionamento e escalar com estrutura.”
 
-Serviços: arquitetura e engenharia de software, automação operacional, integrações e produtos proprietários.
+Serviços: presença digital, aplicativos e comunidades, sistemas, IA, automação e integrações.
 
 Cases: dados de exemplo próprios da Arcane, apresentados como portfólio inicial sem inventar clientes identificáveis.
 
@@ -57,7 +60,7 @@ Rodapé: `© 2026 Arcane Tecnologia. Todos os direitos reservados.`
 
 - O menu abre e fecha com estado real e bloqueia o scroll do documento enquanto estiver aberto.
 - Links de navegação atualizam a rota sem recarregar a página durante o desenvolvimento local.
-- O formulário da rota `/contact` valida nome, e-mail e mensagem; ao enviar dados válidos, exibe confirmação local sem enviar dados para terceiros.
+- O formulário da rota `/contact` valida nome, e-mail e mensagem; ao enviar dados válidos, prepara uma mensagem contextual no WhatsApp.
 - Respeitar `prefers-reduced-motion` nas transições.
 
 ## Não escopo

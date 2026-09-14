@@ -7,7 +7,7 @@ export function MenuOverlay({ open, onClose, onNavigate }) {
       <div className="menu-inner">
         <div className="menu-lede">
           <span className="eyebrow eyebrow-blue">NAVEGAÇÃO</span>
-          <p>Transformamos ideias, experiências e processos em soluções digitais que funcionam.</p>
+          <p>Presença, comunidade e tecnologia para empresas que querem crescer no digital.</p>
         </div>
         <nav aria-label="Menu expandido">
           {siteContent.navigation.map((item, index) => (
