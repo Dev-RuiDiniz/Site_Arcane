@@ -43,6 +43,10 @@ function replaceCanonical(html, url) {
   return pattern.test(html) ? html.replace(pattern, tag) : html.replace('</head>', `    ${tag}\n  </head>`);
 }
 
+function removeCanonical(html) {
+  return html.replace(/\s*<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>(?=\s|<)/i, '');
+}
+
 function replaceStructuredData(html, data) {
   const withoutStructuredData = html.replace(
     /\s*<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi,
@@ -82,8 +86,26 @@ function renderRoute(template, route) {
   return replaceStructuredData(html, getStructuredData(route));
 }
 
+function renderNotFound(template) {
+  const metadata = getRouteMetadata({ path: '/404', key: 'not-found' });
+  let html = template;
+
+  html = replaceTitle(html, metadata.title);
+  html = replaceMeta(html, 'name', 'description', metadata.description);
+  html = replaceMeta(html, 'name', 'robots', 'noindex,follow');
+  html = replaceMeta(html, 'property', 'og:type', 'website');
+  html = replaceMeta(html, 'property', 'og:title', metadata.title);
+  html = replaceMeta(html, 'property', 'og:description', metadata.description);
+  html = replaceMeta(html, 'property', 'og:url', `${siteUrl}/404`);
+  html = replaceMeta(html, 'name', 'twitter:title', metadata.title);
+  html = replaceMeta(html, 'name', 'twitter:description', metadata.description);
+  html = removeCanonical(html);
+  return replaceStructuredData(html, null);
+}
+
 const template = await fs.readFile(templatePath, 'utf8');
 await fs.writeFile(templatePath, renderRoute(template, routeTable[0]), 'utf8');
+await fs.writeFile(path.join(distDirectory, '404.html'), renderNotFound(template), 'utf8');
 
 for (const route of routeTable.slice(1)) {
   const outputDirectory = path.join(distDirectory, route.path.slice(1));

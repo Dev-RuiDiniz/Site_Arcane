@@ -15,6 +15,7 @@ import { WhatsAppFloat } from './components/WhatsAppFloat.jsx';
 import { ArticleDetailPage } from './pages/ArticleDetailPage.jsx';
 import { ServiceDetailPage } from './pages/ServiceDetailPage.jsx';
 import { NotFoundPage } from './pages/NotFoundPage.jsx';
+import { LoadingScreen } from './components/LoadingScreen.jsx';
 import { siteContent } from './app/content.js';
 import { applyRouteMetadata } from './app/metadata.js';
 import { initializeAnalytics, trackPageView, trackWhatsAppClick } from './app/analytics.js';
@@ -26,6 +27,33 @@ function App() {
   const [route, setRoute] = useState(() => getRoute(window.location.pathname));
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let finished = false;
+    let finishTimeout;
+    const startedAt = performance.now();
+    const minimumDuration = 560;
+
+    const finishLoading = () => {
+      if (finished) return;
+      finished = true;
+      window.removeEventListener('load', finishLoading);
+      const remaining = Math.max(0, minimumDuration - (performance.now() - startedAt));
+      finishTimeout = window.setTimeout(() => setIsLoading(false), remaining);
+    };
+
+    if (document.readyState === 'complete') finishLoading();
+    else window.addEventListener('load', finishLoading, { once: true });
+    const fallbackTimeout = window.setTimeout(finishLoading, 1600);
+
+    return () => {
+      finished = true;
+      window.removeEventListener('load', finishLoading);
+      window.clearTimeout(fallbackTimeout);
+      window.clearTimeout(finishTimeout);
+    };
+  }, []);
 
   useEffect(() => {
     const updateHeaderVisibility = () => setHeaderVisible(window.scrollY > 24);
@@ -104,9 +132,18 @@ function App() {
   if (['privacy', 'terms', 'cookies'].includes(route.key)) page = <LegalPage kind={route.key} {...pageProps} />;
   if (route.key === 'not-found') page = <NotFoundPage {...pageProps} />;
 
-  if (route.key === 'redirect') return null;
+  if (route.key === 'redirect') return <LoadingScreen />;
 
-  return <><Header currentPath={route.path} isVisible={route.key !== 'home' || headerVisible || menuOpen} menuOpen={menuOpen} onMenuToggle={() => setMenuOpen((open) => !open)} onNavigate={handleNavigate} /><MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} onNavigate={handleNavigate} />{page}<SiteFooter onNavigate={handleNavigate} /><WhatsAppFloat /></>;
+  return <>
+    <div aria-hidden={isLoading}>
+      <Header currentPath={route.path} isVisible={route.key !== 'home' || headerVisible || menuOpen} menuOpen={menuOpen} onMenuToggle={() => setMenuOpen((open) => !open)} onNavigate={handleNavigate} />
+      <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} onNavigate={handleNavigate} />
+      {page}
+      <SiteFooter onNavigate={handleNavigate} />
+      <WhatsAppFloat />
+    </div>
+    {isLoading ? <LoadingScreen /> : null}
+  </>;
 }
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

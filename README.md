@@ -92,6 +92,7 @@ O build gera um documento HTML com metadados específicos para cada rota publica
 
 - `/robots.txt` permite rastreamento e aponta para o sitemap oficial.
 - `/sitemap.xml` lista somente as rotas públicas atuais, com URLs canônicas em HTTPS.
+- `404.html` é gerado com `noindex,follow` e usado como página de erro autoral tanto no Apache/Hostinger quanto no Vercel.
 - A home publica `Organization` e `WebSite`; serviços publicam `Service`; artigos publicam `Article` e breadcrumbs.
 - O domínio `www` é consolidado no domínio canônico sem `www` por redirect permanente.
 - URLs antigas conhecidas redirecionam para `/contact` ou para a divisão atual correspondente.
